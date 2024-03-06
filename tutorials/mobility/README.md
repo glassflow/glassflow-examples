@@ -1,4 +1,4 @@
-# Mobility Tutorial for GlassFlow
+# Mobility Project Example Pipeline
 
 This project focuses on creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. The primary objectives include identifying low-fuel vehicles and finding the nearest fuel station based on GPS coordinates and fuel type. It also discounts drivers based on their vehicle's fuel level and proximity to the nearest fuel station.
 
