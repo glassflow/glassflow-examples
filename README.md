@@ -6,7 +6,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### Mobility
 
-1. [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. 
+- [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. 
 
 
 ### Getting Started
