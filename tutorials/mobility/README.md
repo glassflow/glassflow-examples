@@ -48,9 +48,9 @@ Make sure that you have the following before proceeding with the installation:
 
 Open a terminal and create a new space called `examples` to organize multiple pipelines:
 
+```bash
 glassflow space create examples
-
-Bash
+```
 
 After the space is created successfully, you will get a SpaceID in the terminal.
 
