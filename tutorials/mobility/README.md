@@ -62,15 +62,15 @@ Use the GlassFlow CLI to create a new data pipeline inside the space.
 glassflow pipeline create mobilitydemo --space=examples --function=transform.py
 ```
 
-This command initializes the pipeline with a name `mobilitydemo` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
+This command initializes the pipeline with a name `mobilitydemo` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline Name** with its **Access Token**.
 
 ### 3. Create an environment configuration file
 
 Add a `.env` file in the project directory and add the following configuration variables:
 
 ```bash
-PIPELINE_ID=your_pipeline_id
-SPACE_ID=your_space_id
+PIPELINE_ID=your_pipeline_name
+SPACE_ID=your_space_name
 PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 ```
 
