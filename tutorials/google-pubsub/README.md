@@ -2,6 +2,8 @@
 
 This repository demonstrates how to integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
 
+![GlassFlow Google Pubsub](/assets/GlassFlow%20Google%20Pubsub.png)
+
 ## Prerequisites
 
 To complete the tutorial you'll need the following:

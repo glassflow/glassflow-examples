@@ -4,6 +4,8 @@ This project focuses on creating a data pipeline using GlassFlow to process and 
 
 In this set of tutorials, you'll find instructions on setting up the project, including prerequisites and steps for creating the pipeline, implementing data transformation functions, setting up data producers, and configuring data consumers.
 
+![GlassFlow car sharing pipeline](/assets/GlassFlow%20car%20sharing%20pipeline.png)
+
 Follow these steps to set up the mobility project.
 
 ## Prerequisites
