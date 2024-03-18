@@ -5,8 +5,8 @@ import json
 from dotenv import dotenv_values
 
 config = dotenv_values(".env")
-project_id = pipeline_id = config.get("PROJECT_ID")
-subscription_id = pipeline_id = config.get("SUBSCRIPTION_ID")
+project_id = config.get("PROJECT_ID")
+subscription_id = config.get("SUBSCRIPTION_ID")
 pipeline_id = config.get("PIPELINE_ID")
 space_id = config.get("SPACE_ID")
 pipeline_access_token = config.get("PIPELINE_ACCESS_TOKEN")
