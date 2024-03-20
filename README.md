@@ -6,7 +6,9 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### Mobility
 
-- [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. 
+- [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data.
+- [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/README.md) - This repository demonstrates how to integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
+- [GlassFlow and AWS Simple Queue Service (SQS) Integration Pipeline Example](tutorials/aws-sqs/README.md) - This repository demonstrates how to integrate AWS SQS with GlassFlow to ingest and transform real-time data.
 
 
 ### Getting Started
