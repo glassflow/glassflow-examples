@@ -1,8 +1,8 @@
-# GlassFlow and Google Pub/Sub Integration Pipeline Example
+# GlassFlow and AWS Simple Queue Service (SQS) Integration Pipeline Example
 
-This repository demonstrates how to integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
+This repository demonstrates how to integrate AWS SQS with GlassFlow to ingest and transform real-time data.
 
-![GlassFlow Google Pubsub](/assets/GlassFlow%20Google%20Pubsub.png)
+![GlassFlow AWS SQS](/assets/GlassFlow%20AWS%20SQS%20Integration.png)
 
 ## Prerequisites
 
@@ -12,7 +12,8 @@ To run the sample pipeline you'll need the following:
 - [Pip](https://pip.pypa.io/en/stable/installation/) is installed to manage project packages.
 - You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
 - You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
-- Follow [steps from 1 to 7](https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library) under Before you begin section of guidance on [Google Pub/Sub get started documentation](https://cloud.google.com/pubsub/docs/publish-receive-messages-client-library) to install the Google Cloud CLI and create a new Google Cloud project called `glassflow-data-pipeline`.
+- You have an [AWS account](https://portal.aws.amazon.com/).
+- You installed [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
 ## Installation
 
@@ -25,7 +26,7 @@ To run the sample pipeline you'll need the following:
 2. Navigate to the project directory:
     
     ```bash
-    cd tutorials/google-pubsub
+    cd tutorials/aws-sqs
     ```
 3. Create a new virtual environment
 Create a new virtual environment in the same folder and activate that environment:
@@ -34,10 +35,10 @@ Create a new virtual environment in the same folder and activate that environmen
     virtualenv glassflow && source glassflow/bin/activate
     ```
 
-3. Install the GlassFlow, Google Cloud PubSub Python SDKs and virtual environment package python-dotenvusing pip.
+3. Install the GlassFlow, AWS Boto3 Python SDKs, and virtual environment package python-dotenvusing pip.
 
     ```bash
-    pip install glassflow python-dotenv google-cloud-pubsub
+    pip install glassflow python-dotenv boto3
     ```
 
 4. Read the following tutorial to learn how run the project: [Link to a tutorial].
