@@ -41,4 +41,4 @@ Create a new virtual environment in the same folder and activate that environmen
     pip install glassflow python-dotenv boto3
     ```
 
-4. Read the following tutorial to learn how run the project: [Link to a tutorial].
+4. Read the following tutorial to learn how to run the project: [Integrating AWS SQS with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-sqs-with-glassflow)
