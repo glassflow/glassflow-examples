@@ -1,6 +1,6 @@
 # GlassFlow Examples
 
-This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of pipeline examples, starter kits, and comprehensive tutorials. 
+This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of pipeline examples, starter kits, and comprehensive tutorials.
 
 ## Explore
 
@@ -24,4 +24,4 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
     ```bash
     cd examples
     ```
-    
+3. Visit the developer documentation for more information: https://learn.glassflow.dev/docs
