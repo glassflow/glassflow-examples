@@ -40,4 +40,4 @@ Create a new virtual environment in the same folder and activate that environmen
     pip install glassflow python-dotenv google-cloud-pubsub
     ```
 
-4. Read the following tutorial to learn how run the project: [Integrating Google Pub/Sub with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-google-pub-sub-with-glassflow)https://learn.glassflow.dev/docs/develop/tutorials/integrating-google-pub-sub-with-glassflow.
+4. Read the following tutorial to learn how run the project: [Integrating Google Pub/Sub with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-google-pub-sub-with-glassflow).
