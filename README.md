@@ -1,12 +1,12 @@
 # GlassFlow Examples
 
-This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of pipeline examples, starter kits, and comprehensive tutorials. 
+This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of pipeline examples, starter kits, and comprehensive tutorials.
 
 ## Explore
 
-### Mobility
-
-- [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. 
+- [Mobility data pipeline](tutorials/mobility/README.md) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data.
+- [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/README.md) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
+- [GlassFlow and AWS Simple Queue Service (SQS) Integration Pipeline Example](tutorials/aws-sqs/README.md) - Integrate AWS SQS with GlassFlow to ingest and transform real-time data.
 
 
 ### Getting Started
@@ -22,4 +22,4 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
     ```bash
     cd examples
     ```
-    
+3. Visit the developer documentation for more information: https://learn.glassflow.dev/docs
