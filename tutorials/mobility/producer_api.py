@@ -31,18 +31,19 @@ def main():
     pipeline_client = client.pipeline_client(space_id=space_id,
                                              pipeline_id=pipeline_id,
                                              pipeline_access_token=token)
-    while True:
+    counter = 0
+    while True and counter < 1000:
         try:
             event = get_mock_events()
+            counter += 1
             if event:
                 req = pipeline_client.publish(request_body=event[0])
 
                 if req.status_code == 200:
-                    print("Event published successfully")
+                    print("Event published successfully", event[0])
                 else:
                     print("Failed to publish event")
                     print(req.text)
-            sleep(0.5)
         except Exception as e:
             print(e)
             break
@@ -51,5 +52,4 @@ def main():
 
 
 if __name__ == "__main__":
-    for i in range(10):
-        print(get_mock_events())
+    main()

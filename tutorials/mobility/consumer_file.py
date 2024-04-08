@@ -1,6 +1,4 @@
 """Get transformed data and store it locally on disk
-alternate, push it to cloud storage bucket ?
-alternate, push it to a realtime database
 """
 import glassflow
 import sys
@@ -32,10 +30,11 @@ def main():
                     print("Data consumed successfully")
                     print(data)
                     f.write(json.dumps(data) + "\n")
+                    f.flush()
             except KeyboardInterrupt:
                 print("exiting")
                 sys.exit(0)
-            time.sleep(0.5)
 
 
-main()
+if __name__ == "__main__":
+    main()
