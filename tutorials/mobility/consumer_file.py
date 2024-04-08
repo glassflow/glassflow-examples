@@ -14,18 +14,18 @@ def main():
     print(config)
     pipeline_id = config.get("PIPELINE_ID")
     space_id = config.get("SPACE_ID")
-    pipeline_access_token = config.get("PIPELINE_ACCESS_TOKEN")
-    print("pipeline ID", pipeline_id)
+    token = config.get("PIPELINE_ACCESS_TOKEN")
+
     client = glassflow.GlassFlowClient()
     pipeline_client = client.pipeline_client(space_id=space_id,
-                                             pipeline_id=pipeline_id)
+                                             pipeline_id=pipeline_id,
+                                             pipeline_access_token=token)
 
     with open("mobility_data_transformed.txt", "a+") as f:
         while True:
             try:
                 # consume transfornmed data from the pipeline
-                res = pipeline_client.consume(
-                    pipeline_access_token=pipeline_access_token)
+                res = pipeline_client.consume()
                 if res.status_code == 200:
                     # get the transformed data as json
                     data = res.body.event
