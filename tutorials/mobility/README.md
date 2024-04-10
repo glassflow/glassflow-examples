@@ -61,18 +61,18 @@ After the space is created successfully, you will get a SpaceID in the terminal.
 Use the GlassFlow CLI to create a new data pipeline inside the space. 
 
 ```bash
-glassflow pipeline create mobilitydemo --space=examples --function=transform.py
+glassflow pipeline create mobilitydemo --space-id={space_id} --function=transform.py
 ```
 
-This command initializes the pipeline with a name `mobilitydemo` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline Name** with its **Access Token**.
+This command initializes the pipeline with a name `mobilitydemo` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
 
 ### 3. Create an environment configuration file
 
 Add a `.env` file in the project directory and add the following configuration variables:
 
 ```bash
-PIPELINE_ID=your_pipeline_name
-SPACE_ID=your_space_name
+PIPELINE_ID=your_pipeline_id
+SPACE_ID=your_space_id
 PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 ```
 
@@ -95,3 +95,5 @@ python consumer_file.py
 ```
 
 The script will start consuming data continuously from the pipeline and storing it locally on a .txt file. You can see an example of consumed data [here](https://github.com/glassflow/glassflow-examples/blob/main/tutorials/mobility/mobility_data_transformed.txt). You can further extend this functionality to push the consumed data to cloud storage buckets or real-time databases as per your project requirements.
+
+You can also find instructions on how to run the example project [in the GlassFlow docs](https://learn.glassflow.dev/docs/develop/create-a-pipeline).
