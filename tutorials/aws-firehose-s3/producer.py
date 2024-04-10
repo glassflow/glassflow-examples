@@ -34,9 +34,6 @@ class RecordGenerator:
         }
         return netflix_data
 
-    def generate_netflix_records(self, rate, fake):
-        return [self.generate_netflix_record(fake) for _ in range(rate)]
-
 
 def main():
     try:
@@ -44,14 +41,13 @@ def main():
             space_id=space_id, pipeline_id=pipeline_id, pipeline_access_token=token
         )
         fake = Faker()
-        rate = 200  # rate at which data is generated
-        max_records = 100
+        max_records = 5
 
         generator = RecordGenerator()
 
         # Generate and stream data
         while True and max_records > 0:
-            data_json = generator.generate_netflix_records(rate, fake)
+            data_json = generator.generate_netflix_record(fake)
             max_records -= 1
             try:
                 print(f"Sending record to GlassFlow pipeline: '{data_json}'")
