@@ -8,20 +8,20 @@ config = dotenv_values(".env")
 
 pipeline_id = config.get("PIPELINE_ID")
 space_id = config.get("SPACE_ID")
-pipeline_access_token = config.get("PIPELINE_ACCESS_TOKEN")
+token = config.get("PIPELINE_ACCESS_TOKEN")
 
 
 def read_data_from_pipeline(file_path):
     client = glassflow.GlassFlowClient()
-    pipeline_client = client.pipeline_client(space_id=space_id, pipeline_id=pipeline_id)
+    pipeline_client = client.pipeline_client(space_id=space_id, 
+                                             pipeline_id=pipeline_id,
+                                             pipeline_access_token=token)
 
     with open(file_path, "a+") as f:
         while True:
             try:
                 print("Consuming data from GlassFlow pipeline...")
-                res = pipeline_client.consume(
-                    pipeline_access_token=pipeline_access_token
-                )
+                res = pipeline_client.consume()
                 print(res)
                 if res.status_code == 200:
                     # get the transformed data as json

@@ -9,7 +9,7 @@ project_id = config.get("PROJECT_ID")
 subscription_id = config.get("SUBSCRIPTION_ID")
 pipeline_id = config.get("PIPELINE_ID")
 space_id = config.get("SPACE_ID")
-pipeline_access_token = config.get("PIPELINE_ACCESS_TOKEN")
+token = config.get("PIPELINE_ACCESS_TOKEN")
 # Number of seconds the subscriber should listen for messages
 timeout = 5.0
 
@@ -17,7 +17,9 @@ subscriber = pubsub_v1.SubscriberClient()
 subscription_path = subscriber.subscription_path(project_id, subscription_id)
 
 client = glassflow.GlassFlowClient()
-pipeline_client = client.pipeline_client(space_id=space_id, pipeline_id=pipeline_id)
+pipeline_client = client.pipeline_client(space_id=space_id,
+                                         pipeline_id=pipeline_id,
+                                         pipeline_access_token=token)
 
 
 def callback(message: pubsub_v1.subscriber.message.Message) -> None:
@@ -29,9 +31,7 @@ def callback(message: pubsub_v1.subscriber.message.Message) -> None:
     # For example, let's send the data directly
     try:
         # Publish the data to the GlassFlow pipeline
-        response = pipeline_client.publish(
-            request_body=data, pipeline_access_token=pipeline_access_token
-        )
+        response = pipeline_client.publish(request_body=data)
         if response.status_code == 200:
             print("Data sent successfully to GlassFlow.")
         else:

@@ -14,11 +14,11 @@ queue_url = config.get("QUEUE_URL")
 glassflow_client = GlassFlowClient()
 pipeline_id = config.get("PIPELINE_ID")
 space_id = config.get("SPACE_ID")
-pipeline_access_token = config.get("PIPELINE_ACCESS_TOKEN")
+token = config.get("PIPELINE_ACCESS_TOKEN")
 
-pipeline_client = glassflow_client.pipeline_client(
-    space_id=space_id, pipeline_id=pipeline_id
-)
+pipeline_client = glassflow_client.pipeline_client(space_id=space_id,
+                                                   pipeline_id=pipeline_id,
+                                                   pipeline_access_token=token)
 
 
 def send_to_glassflow(message):
@@ -27,9 +27,7 @@ def send_to_glassflow(message):
 
     try:
         # Publish the data to the GlassFlow pipeline
-        response = pipeline_client.publish(
-            request_body=data, pipeline_access_token=pipeline_access_token
-        )
+        response = pipeline_client.publish(request_body=data)
         if response.status_code == 200:
             print("Data sent successfully to GlassFlow.")
         else:
