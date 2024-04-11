@@ -1,0 +1,1 @@
+glassflow pipeline create inventorymanagement --function=transform.py

@@ -1,4 +1,3 @@
-# transform.py
 import json
 
 # Write a mandatory 'handler' function
