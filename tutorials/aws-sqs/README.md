@@ -10,8 +10,7 @@ To run the sample pipeline you'll need the following:
 
 - [Python is installed](https://www.python.org/downloads/) on your machine.
 - [Pip](https://pip.pypa.io/en/stable/installation/) is installed to manage project packages.
-- You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
-- You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
+- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account#create-a-new-account), installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli#installation), and logged into your account via the CLI.
 - You have an [AWS account](https://portal.aws.amazon.com/).
 - You installed [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
