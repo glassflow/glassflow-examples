@@ -26,17 +26,16 @@ To run the sample pipeline you'll need the following:
     ```bash
     cd tutorials/google-pubsub
     ```
-3. Create a new virtual environment
-Create a new virtual environment in the same folder and activate that environment:
+3. Create a new virtual environment in the same folder and activate that environment:
     
     ```bash
-    virtualenv glassflow && source glassflow/bin/activate
+    python -m venv .venv && source .venv/bin/activate
     ```
 
-3. Install the GlassFlow, Google Cloud PubSub Python SDKs and virtual environment package python-dotenvusing pip.
+4. Install the GlassFlow, Google Cloud PubSub Python SDKs and virtual environment package python-dotenvusing pip.
 
     ```bash
     pip install glassflow python-dotenv google-cloud-pubsub
     ```
 
-4. Read the following tutorial to learn how run the project: [Integrating Google Pub/Sub with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-google-pub-sub-with-glassflow).
+5. Read the following tutorial to learn how run the project: [Integrating Google Pub/Sub with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-google-pub-sub-with-glassflow).

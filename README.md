@@ -15,6 +15,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [Mobility data pipeline](tutorials/mobility/) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data.
 - [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
 - [GlassFlow and AWS Simple Queue Service (SQS) Integration Pipeline Example](tutorials/aws-sqs/) - Integrate AWS SQS with GlassFlow to ingest and transform real-time data.
+- [GlassFlow and AWS Kinesis Data Firehose Integration Pipeline Example](tutorials/aws-firehose-s3/) - Integrating AWS Kinesis Data Firehose with GlassFlow.
 
 
 ### Getting Started

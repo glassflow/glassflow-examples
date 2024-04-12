@@ -1,9 +1,40 @@
-In this tutorial, we will construct a serverless streaming ETL end-to-end data pipeline to analyze Netflix viewing metrics. The surge in Netflix usage has led to a substantial increase in streaming data that demands prompt processing. We’ll simulate a scenario where streaming data from Netflix’s viewership metrics needs to be monitored and processed in real-time to enhance user experience and content delivery. 
+# Integrating AWS Kinesis Data Firehose with GlassFlow
 
-A Python script simulates the generation of sample Netflix viewing metrics, which are streamed into AWS Kinesis Data Firehose. 
+This tutorial demonstrates how to build an end-to-end serverless streaming data pipeline with GlassFlow, AWS Kinesis and AWS S3.
 
-GlassFlow serves as the central component for real-time data processing and transformation. AWS Firehose acts as the data ingestion service, seamlessly delivering the transformed data to an S3 bucket for further analysis and storage.
+## Prerequisites
 
-The transformed and enriched view metrics data is delivered to an S3 bucket by Firehose. S3 provides durable and scalable storage for the data, allowing Netflix to retain historical metrics for long-term analysis and compliance purposes.
+To run the sample pipeline you'll need the following:
 
-Netflix utilizes analytical tools and services, such as Amazon Athena, Amazon Redshift, or Amazon QuickSight, to query, visualize, and derive actionable insights from the stored view metrics data. These insights inform content recommendation algorithms, marketing strategies, and business decision-making processes.
+- [Python is installed](https://www.python.org/downloads/) on your machine.
+- [Pip](https://pip.pypa.io/en/stable/installation/) is installed to manage project packages.
+- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account#create-a-new-account), installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli#installation), and logged into your account via the CLI.
+- You have an [AWS account](https://portal.aws.amazon.com/).
+- You installed [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
+
+## Installation
+
+1. Clone the `glassflow-examples` repository to your local machine:
+    
+    ```bash
+    git clone https://github.com/glassflow/glassflow-examples.git
+    ```
+    
+2. Navigate to the project directory:
+    
+    ```bash
+    cd tutorials/aws-firehose-s3
+    ```
+3. Create a new virtual environment in the same folder and activate that environment:
+    
+    ```bash
+    python -m venv .venv && source .venv/bin/activate
+    ```
+
+4. Install the GlassFlow, AWS Boto3 Python SDKs, and virtual environment package python-dotenvusing pip.
+
+    ```bash
+    pip install glassflow python-dotenv boto3 faker
+    ```
+
+5. Read the following tutorial to learn how to run the project: [Integrating AWS Kinesis Data Firehose with GlassFlow](https://app.gitbook.com/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/64/develop/tutorials/integrating-aws-kinesis-data-firehose-with-glassflow)
