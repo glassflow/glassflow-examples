@@ -4,7 +4,7 @@
     "service": "consumer",
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose",
-    "onCreateCommand": "pip install glassflow python-dotenv boto3 faker",
+    "initializeCommand": "pip install glassflow python-dotenv boto3 faker",
     "remoteUser": "vscode",
     "hostRequirements": {
         "memory": "8gb",

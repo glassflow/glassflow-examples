@@ -8,7 +8,6 @@ import uuid
 
 # Load environment variables
 load_dotenv()
-stream_name = os.getenv("KINESIS_STREAM_NAME")
 ddb_table_name = os.getenv("DYNAMODB_TABLE_NAME")
 region = os.getenv("REGION")
 pipeline_id = os.getenv("PIPELINE_ID")

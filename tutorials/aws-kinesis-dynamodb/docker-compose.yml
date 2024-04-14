@@ -1,25 +1,51 @@
 version: '3'
 services:
   source-kinesis:
-    image: python:3.9-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    environment:
+      - KINESIS_STREAM_NAME=${KINESIS_STREAM_NAME}
+      - REGION=${REGION}
+      - PIPELINE_ID=${PIPELINE_ID}
+      - SPACE_ID=${SPACE_ID}
+      - PIPELINE_ACCESS_TOKEN=${PIPELINE_ACCESS_TOKEN}
     volumes:
       - ./source_kinesis.py:/app/source_kinesis.py
     command: python /app/source_kinesis.py
   
   sink-dynamodb:
-    image: python:3.9-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    environment:
+      - DYNAMODB_TABLE_NAME=${DYNAMODB_TABLE_NAME}
+      - REGION=${REGION}
+      - PIPELINE_ID=${PIPELINE_ID}
+      - SPACE_ID=${SPACE_ID}
+      - PIPELINE_ACCESS_TOKEN=${PIPELINE_ACCESS_TOKEN}
     volumes:
       - ./sink_dynamodb.py:/app/sink_dynamodb.py
     command: python /app/sink_dynamodb.py
 
   producer:
-    image: python:3.9-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    environment:
+      - KINESIS_STREAM_NAME=${KINESIS_STREAM_NAME}
+      - REGION=${REGION}
     volumes:
       - ./producer.py:/app/producer.py
     command: python /app/producer.py
   
   consumer:
-    image: python:3.9-slim
+    build:
+      context: .
+      dockerfile: Dockerfile.base
+    environment:
+      - DYNAMODB_TABLE_NAME=${DYNAMODB_TABLE_NAME}
+      - REGION=${REGION}
     volumes:
       - ./consumer.py:/app/consumer.py
     command: python /app/consumer.py
