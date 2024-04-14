@@ -1,4 +1,4 @@
-pip install glassflow python-dotenv boto3 faker pandas
+pip install glassflow python-dotenv boto3 faker
 
 glassflow space create netflixmetrics
 
