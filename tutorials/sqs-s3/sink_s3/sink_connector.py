@@ -6,6 +6,7 @@ import json
 import os
 import uuid
 from dotenv import load_dotenv
+import random
 
 
 def get_aws_account_id(aws_region_name):
@@ -181,10 +182,15 @@ def main():
         pipeline_id=pipeline_id,
         pipeline_access_token=pipeline_access_token)
 
+    retry_delay = 10
     while True:
         try:
             res = pipeline_client.consume()
             if res.status_code == 204:
+                # No new events. sleep for a little bit
+                time.sleep(retry_delay)
+                retry_delay *= 2  # Double the delay for the next attempt
+                retry_delay += random.uniform(0, 1)  # Add jitter
                 continue
             if res.status_code == 200:
                 record = res.json()
@@ -200,6 +206,8 @@ def main():
                 print(
                     f"Consumed transformed event from glassflow with event_id {event_id} and sent to s3 via Firehose"
                 )
+                # set the retry delay back to original
+                retry_delay = 10
         except firehose_client.exceptions.ResourceNotFoundException:
             print("Delivery stream does not exist. Exiting...")
             sys.exit(1)
@@ -212,4 +220,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     main()
