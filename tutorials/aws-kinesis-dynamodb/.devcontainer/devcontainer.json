@@ -1,6 +1,6 @@
 {
     "name": "Integrating AWS Kinesis streams and DynamoDB with GlassFlow Demo",
-    "dockerComposeFile": "../docker-compose.yml",
+    "dockerComposeFile": "../compose.yml",
     "service": "consumer",
     "workspaceFolder": "/workspace",
     "shutdownAction": "stopCompose",

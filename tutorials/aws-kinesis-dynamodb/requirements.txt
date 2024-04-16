@@ -1,4 +1,0 @@
-glassflow
-python-dotenv
-boto3
-faker
