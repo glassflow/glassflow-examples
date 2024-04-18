@@ -1,19 +1,24 @@
 import boto3
-from dotenv import dotenv_values
+from dotenv import load_dotenv
+import os
 
-config = dotenv_values(".env")
-queue_name = config.get("QUEUE_NAME")
 
-# Create SQS client
-sqs = boto3.client('sqs')
+def create_sqs_queue():
+    queue_name = os.environ['SQS_QUEUE_NAME']
+    print("Queue NAME: ", queue_name)
+    sqs = boto3.client("sqs", region_name=os.environ['AWS_REGION'])
 
-# Create a SQS queue
-response = sqs.create_queue(
-    QueueName=queue_name,
-    Attributes={
-        'DelaySeconds': '60',
-        'MessageRetentionPeriod': '86400'
-    }
-)
+    # Create a SQS queue
+    response = sqs.create_queue(QueueName=queue_name,
+                                Attributes={
+                                    'DelaySeconds': '60',
+                                    'MessageRetentionPeriod': '86400'
+                                })
 
-print(response['QueueUrl'])
+    print(response['QueueUrl'])
+    return response['QueueUrl']
+
+
+if __name__ == "__main__":
+    load_dotenv()
+    create_sqs_queue()

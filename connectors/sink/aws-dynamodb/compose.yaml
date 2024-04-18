@@ -1,0 +1,12 @@
+services:
+  sink-connector-dynamodb:
+    build:
+      context: .
+    environment:
+      AWS_REGION: ${AWS_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
+      PIPELINE_ID: ${PIPELINE_ID}
+      SPACE_ID: ${SPACE_ID}
+      AWS_DYNAMODB_TABLE_NAME: ${AWS_DYNAMODB_TABLE_NAME}

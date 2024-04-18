@@ -1,1 +1,0 @@
-{'customer_id': '78910', 'order_id': '123456', 'order_timestamp': '2024-01-01T12:00:00Z', 'text': 'Loved the product! Will definitely recommend to my friends.', 'sentiment': 'positive'}

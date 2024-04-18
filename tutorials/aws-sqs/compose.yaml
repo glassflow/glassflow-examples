@@ -1,0 +1,19 @@
+services:
+  data-generator:
+    build:
+      context: generator_sqs
+    environment:
+      AWS_REGION: ${AWS_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      SQS_QUEUE_URL: ${SQS_QUEUE_URL}
+
+  source-connector-sqs:
+    extends:
+      file: ../../connectors/source/aws-sqs/compose.yaml
+      service: source-connector-sqs
+
+  sink-connector-s3:
+    extends:
+        file: ../../connectors/sink/aws-s3/compose.yaml
+        service: sink-connector-s3
