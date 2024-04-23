@@ -27,17 +27,16 @@ To run the sample pipeline you'll need the following:
     ```bash
     cd tutorials/aws-sqs
     ```
-3. Create a new virtual environment
-Create a new virtual environment in the same folder and activate that environment:
+3. Create a new virtual environment in the same folder and activate that environment:
     
     ```bash
-    virtualenv glassflow && source glassflow/bin/activate
+    python -m venv .venv && source .venv/bin/activate
     ```
 
-3. Install the GlassFlow, AWS Boto3 Python SDKs, and virtual environment package python-dotenvusing pip.
+4. Install the GlassFlow, AWS Boto3 Python SDKs, and virtual environment package python-dotenvusing pip.
 
     ```bash
     pip install glassflow python-dotenv boto3
     ```
 
-4. Read the following tutorial to learn how to run the project: [Integrating AWS SQS with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-sqs-with-glassflow)
+5. Read the following tutorial to learn how to run the project: [Integrating AWS SQS with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-sqs-with-glassflow)
