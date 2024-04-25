@@ -1,6 +1,6 @@
 # Integrating AWS Kinesis Stream and DynamoDB with GlassFlow
 
-This tutorial demonstrates how to build an end-to-end serverless streaming data pipeline with GlassFlow, AWS Kinesis Stream, and AWS DynamoDB.
+This example project demonstrates how to build an end-to-end serverless streaming data pipeline with AWS Kinesis Stream, GlassFlow and AWS DynamoDB.
 
 ## Prerequisites
 

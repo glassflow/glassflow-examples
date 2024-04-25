@@ -1,6 +1,6 @@
-# Integrating AWS Kinesis Data Firehose and S3 with GlassFlow
+# Integrating AWS SQS and S3 with GlassFlow
 
-This tutorial demonstrates how to build an end-to-end serverless streaming data pipeline with GlassFlow, AWS Kinesis Data Firehose, and AWS S3.
+This example project demonstrates how to build an end-to-end serverless streaming data pipeline with AWS SQS and S3.
 
 ## Prerequisites
 
