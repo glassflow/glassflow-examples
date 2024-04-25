@@ -7,8 +7,8 @@ def handler(data, log):
     if data["watchfrequency"] == 1:
         data["reaction"] = "dislike"
     elif data["watchfrequency"] > 5:
-        data["reaction"] = "favourite"  
+        data["reaction"] = "favourite"
     else:
-        data["reaction"] = "like" 
-    
+        data["reaction"] = "like"
+
     return data

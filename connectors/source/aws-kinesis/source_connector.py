@@ -4,6 +4,7 @@ import boto3
 import json
 import time
 from botocore.exceptions import ClientError
+from dotenv import load_dotenv
 
 
 class SourceConnectorKinesis:
@@ -71,4 +72,5 @@ def main():
 
 
 if __name__ == "__main__":
+    load_dotenv()
     main()

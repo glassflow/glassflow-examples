@@ -29,7 +29,7 @@ class SinkConnectorDynamoDB():
         Check if DynamoDB table exists.
         """
         existing_tables = self.ddb_client.list_tables()["TableNames"]
-        return self.table_name in existing_tables
+        return self.ddb_table_name in existing_tables
 
     def _create_dynamodb_table(self):
         """
@@ -109,7 +109,7 @@ def main():
                 record = res.json()
                 sink_connector.put(record)
                 print(
-                    "Consumed transformed event from glassflow and sent to s3 via Firehose"
+                    "Consumed transformed event from Glassflow and sent to DynamoDB"
                 )
                 # set the retry delay back to original
                 retry_delay = 10

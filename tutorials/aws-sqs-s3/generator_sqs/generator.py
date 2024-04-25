@@ -35,7 +35,7 @@ def send_sqs_message(record_function, sqs, queue_url):
 
 def main():
     # Initialize the SQS client
-    queue_url = os.environ['SQS_QUEUE_URL']
+    queue_url = os.environ['AWS_SQS_QUEUE_URL']
     print("Queue URL: ", queue_url)
     sqs = boto3.client("sqs", region_name=os.environ['AWS_REGION'])
     data_generator = DataGenerator()

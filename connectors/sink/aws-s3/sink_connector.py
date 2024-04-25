@@ -9,27 +9,26 @@ from dotenv import load_dotenv
 import random
 
 
-class SinkConnectorS3():
-
+class SinkConnectorS3:
     def __init__(self) -> None:
         self.bucket_name = os.environ["AWS_S3_BUCKET_NAME"]
-        self.aws_region_name = os.environ['AWS_REGION']
+        self.aws_region_name = os.environ["AWS_REGION"]
         self.firehose_uid = uuid.uuid4().hex[0:4]
         self.role_name = "firehose_delivery_role_%s" % self.firehose_uid
         self.firehose_delivery_stream_name = "glassflow-pipeline-%s" % self.firehose_uid
-        self.aws_account_id = self._get_aws_account_id(self.aws_region_name)
-        self.firehose_client = boto3.client("firehose",
-                                            region_name=self.aws_region_name)
+        self.aws_account_id = self._get_aws_account_id()
+        self.firehose_client = boto3.client(
+            "firehose", region_name=self.aws_region_name
+        )
 
     def setup(self):
-        self.setup_s3_bucket()
         if not self._check_firehose_stream():
             self._setup_iam_firehose_role()
             time.sleep(30)
             # waiting for role to be created before setting up firehose
             self._setup_aws_firehose()
 
-        if not self.check_firehose_stream():
+        if not self._check_firehose_stream():
             print("Delivery stream still not exist. Exiting...")
             sys.exit(1)
 
@@ -55,13 +54,14 @@ class SinkConnectorS3():
         iam_client = boto3.client("iam")
         # Define IAM policy document
         policy_document = {
-            "Version":
-            "2012-10-17",
-            "Statement": [{
-                "Effect": "Allow",
-                "Action": "s3:PutObject",
-                "Resource": f"arn:aws:s3:::{self.bucket_name}/*"
-            }]
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": "s3:PutObject",
+                    "Resource": f"arn:aws:s3:::{self.bucket_name}/*",
+                }
+            ],
         }
         # Create IAM role if not exists
         try:
@@ -71,17 +71,18 @@ class SinkConnectorS3():
             print("IAM role does not exist. Creating...")
             response = iam_client.create_role(
                 RoleName=self.role_name,
-                AssumeRolePolicyDocument=json.dumps({
-                    "Version":
-                    "2012-10-17",
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Principal": {
-                            "Service": "firehose.amazonaws.com"
-                        },
-                        "Action": "sts:AssumeRole"
-                    }]
-                }),
+                AssumeRolePolicyDocument=json.dumps(
+                    {
+                        "Version": "2012-10-17",
+                        "Statement": [
+                            {
+                                "Effect": "Allow",
+                                "Principal": {"Service": "firehose.amazonaws.com"},
+                                "Action": "sts:AssumeRole",
+                            }
+                        ],
+                    }
+                ),
             )
             print("IAM role created successfully.")
 
@@ -99,60 +100,37 @@ class SinkConnectorS3():
     def _check_firehose_stream(self):
         try:
             stream = self.firehose_client.describe_delivery_stream(
-                DeliveryStreamName=self.firehose_delivery_stream_name)
+                DeliveryStreamName=self.firehose_delivery_stream_name
+            )
             return True
         except self.firehose_client.exceptions.ResourceNotFoundException:
             return False
 
-    def _setup_s3_bucket(self):
-        # Create S3 client
-        s3_client = boto3.client("s3", region_name=self.aws_region_name)
-
-        # Create S3 bucket if not exists
-        try:
-            s3_client.head_bucket(Bucket=self.bucket_name)
-            print(f"Bucket {self.bucket_name} already exists.")
-        except s3_client.exceptions.ClientError as e:
-            error_code = int(e.response["Error"]["Code"])
-            if error_code == 404:
-                print("Bucket does not exist. Creating...")
-                s3_client.create_bucket(
-                    Bucket=self.bucket_name,
-                    CreateBucketConfiguration={
-                        'LocationConstraint': self.aws_region_name
-                    },
-                )
-                print("Bucket created successfully.")
-            else:
-                print("An error occurred:", e)
-                sys.exit(1)
-
     def _setup_aws_firehose(self):
         # Create a Kinesis Firehose client
-        firehose_client = boto3.client("firehose",
-                                       region_name=self.aws_region_name)
+        firehose_client = boto3.client("firehose", region_name=self.aws_region_name)
 
         # Create Firehose delivery stream if not exists
         try:
             firehose_client.create_delivery_stream(
                 DeliveryStreamName=self.firehose_delivery_stream_name,
                 ExtendedS3DestinationConfiguration={
-                    "RoleARN":
-                    f"arn:aws:iam::{self.aws_account_id}:role/{self.role_name}",  # Use the created IAM role ARN
-                    "BucketARN":
-                    f"arn:aws:s3:::{self.bucket_name}",  # Use the created S3 bucket ARN
+                    "RoleARN": f"arn:aws:iam::{self.aws_account_id}:role/{self.role_name}",  # Use the created IAM role ARN
+                    "BucketARN": f"arn:aws:s3:::{self.bucket_name}",  # Use the created S3 bucket ARN
                     "Prefix": "glassflow_transforms/",  # Prefix for S3 objects
                     "ProcessingConfiguration": {
-                        "Enabled":
-                        True,
-                        "Processors": [{
-                            "Type":
-                            "AppendDelimiterToRecord",
-                            "Parameters": [{
-                                "ParameterName": "Delimiter",
-                                "ParameterValue": "\\n"
-                            }]
-                        }]
+                        "Enabled": True,
+                        "Processors": [
+                            {
+                                "Type": "AppendDelimiterToRecord",
+                                "Parameters": [
+                                    {
+                                        "ParameterName": "Delimiter",
+                                        "ParameterValue": "\\n",
+                                    }
+                                ],
+                            }
+                        ],
                     },
                 },
             )
@@ -166,6 +144,7 @@ class SinkConnectorS3():
     def put(self, data):
         try:
             json_data = json.dumps(data)
+
             # Put record to Firehose delivery stream
             response = self.firehose_client.put_record(
                 DeliveryStreamName=self.firehose_delivery_stream_name,
@@ -192,7 +171,8 @@ def main():
     pipeline_client = glassflow.GlassFlowClient().pipeline_client(
         space_id=space_id,
         pipeline_id=pipeline_id,
-        pipeline_access_token=pipeline_access_token)
+        pipeline_access_token=pipeline_access_token,
+    )
 
     retry_delay = 10
     while True:
@@ -208,7 +188,7 @@ def main():
                 record = res.json()
                 sink_connector.put(record)
                 print(
-                    "Consumed transformed event from glassflow and sent to s3 via Firehose"
+                    "Consumed transformed event from GlassFlow and sent to S3 via Firehose"
                 )
                 # set the retry delay back to original
                 retry_delay = 10

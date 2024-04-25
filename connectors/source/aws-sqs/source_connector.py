@@ -19,7 +19,7 @@ class SourceConnectorSQS:
     def setup_source(self):
         self.sqs_client = boto3.client("sqs",
                                        region_name=os.environ['AWS_REGION'])
-        self.queue_url = os.environ['SQS_QUEUE_URL']
+        self.queue_url = os.environ['AWS_SQS_QUEUE_URL']
 
     def get_next(self):
         while True:

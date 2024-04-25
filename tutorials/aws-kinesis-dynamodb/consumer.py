@@ -5,8 +5,8 @@ import os
 
 # Load environment variables
 load_dotenv()
-ddb_table_name = os.getenv("DYNAMODB_TABLE_NAME")
-region = os.getenv("REGION")
+ddb_table_name = os.getenv("AWS_DYNAMODB_TABLE_NAME")
+region = os.getenv("AWS_REGION")
 
 # Initialize DynamoDB client
 ddb = boto3.client("dynamodb", region_name=region)

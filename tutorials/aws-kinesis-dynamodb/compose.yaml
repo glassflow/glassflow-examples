@@ -9,25 +9,11 @@ services:
       AWS_KINESIS_STREAM_NAME: ${AWS_KINESIS_STREAM_NAME}
 
   source-connector-kinesis:
-    build:
-      context: source_kinesis
-    environment:
-      AWS_REGION: ${AWS_REGION}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      AWS_KINESIS_STREAM_NAME: ${AWS_KINESIS_STREAM_NAME}
-      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
-      PIPELINE_ID: ${PIPELINE_ID}
-      SPACE_ID: ${SPACE_ID}
+    extends:
+      file: ../../connectors/source/aws-kinesis/compose.yaml
+      service: source-connector-kinesis
 
   sink-connector-dynamodb:
-    build:
-      context: sink_dynamodb
-    environment:
-      AWS_REGION: ${AWS_REGION}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
-      PIPELINE_ID: ${PIPELINE_ID}
-      SPACE_ID: ${SPACE_ID}
-      AWS_DYNAMODB_TABLE_NAME: ${AWS_DYNAMODB_TABLE_NAME}
+    extends:
+      file: ../../connectors/sink/aws-dynamodb/compose.yaml
+      service: sink-connector-dynamodb
