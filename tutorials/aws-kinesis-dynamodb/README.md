@@ -2,8 +2,6 @@
 
 This tutorial demonstrates how to build an end-to-end serverless streaming data pipeline with GlassFlow, AWS Kinesis Stream, and AWS DynamoDB.
 
-![GlassFlow AWS SQS](/assets/Integration%20AWS%20Kinesis%20DynamoDB.png)
-
 ## Prerequisites
 
 To run the sample pipeline, you'll need the following:

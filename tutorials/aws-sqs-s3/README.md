@@ -2,8 +2,6 @@
 
 This tutorial demonstrates how to build an end-to-end serverless streaming data pipeline with GlassFlow, AWS Kinesis Data Firehose, and AWS S3.
 
-![GlassFlow AWS SQS](/assets/GlassFlow%20AWS%20SQS%20Integration.png)
-
 ## Prerequisites
 
 To run the sample pipeline, you'll need the following:
