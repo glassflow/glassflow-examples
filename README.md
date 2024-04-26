@@ -6,16 +6,28 @@
         <img src="https://img.shields.io/badge/slack-join-community?logo=slack&amp;logoColor=white&amp;style=flat"
             alt="Chat on Slack"></a>
 
-# GlassFlow Examples
+# GlassFlow Code Samples
 
-This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of pipeline examples, starter kits, and comprehensive tutorials.
+This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of end-to-end pipeline examples, starter kits, source and sink connector templates, sample data source generators.
 
 ## Explore
+
+### End-to-end stream processing pipelines
 
 - [GlassFlow, AWS Simple Queue Service (SQS) and AWS S3 Integration Pipeline Example](tutorials/aws-sqs-s3/) - Integrate AWS SQS with GlassFlow to ingest, transform real-time data and write results to S3.
 - [GlassFlow, AWS Kinesis Data Stream and AWS DynamoDB Integration Pipeline Example](tutorials/aws-kinesis-dynamodb/) - Integrate AWS Kinesis Data Stream with GlassFlow to ingest, transform real-time data and write results to DynamoDB.
 - [Mobility data pipeline](tutorials/mobility/) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data.
 - [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
+
+### Source Connectors
+
+- [AWS Kinesis](/connectors/source/aws-kinesis)
+- [AWS SQS](/connectors/source/aws-sqs)
+
+### Sink Connectors
+
+- [AWS DynamoDB](/connectors/sink/aws-dynamodb/)
+- [AWS S3](/connectors/sink/aws-s3)
 
 
 ### Getting Started
