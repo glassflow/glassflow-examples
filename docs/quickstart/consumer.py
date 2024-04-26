@@ -1,6 +1,9 @@
+# consumer.py
+
 import glassflow
 from dotenv import dotenv_values
 import json
+import sys
 
 
 def read_data_from_pipeline(file_path):
@@ -14,21 +17,21 @@ def read_data_from_pipeline(file_path):
         space_id=space_id, pipeline_id=pipeline_id, pipeline_access_token=token
     )
 
-    try:
+    with open(file_path, "a+") as f:
         while True:
-            # consume transformed data from the pipeline
-            res = pipeline_client.consume()
-
-            if res.status_code == 200:
-                # get the transformed data as json
-                data = res.body.event
-                print("Data consumed successfully")
-                print(data)
-                with open(file_path, "a+") as f:
+            try:
+                # consume transfornmed data from the pipeline
+                res = pipeline_client.consume()
+                if res.status_code == 200:
+                    # get the transformed data as json
+                    data = res.body.event
+                    print("Data consumed successfully")
+                    print(data)
                     f.write(json.dumps(data) + "\n")
                     f.flush()
-    except KeyboardInterrupt:
-        print("Exiting program")
+            except KeyboardInterrupt:
+                print("Exiting program")
+                sys.exit(0)
 
 
 if __name__ == "__main__":
