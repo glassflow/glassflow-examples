@@ -8,7 +8,7 @@
 
 # GlassFlow Code Samples
 
-This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of end-to-end pipeline examples, starter kits, source and sink connector templates, sample data source generators.
+This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of end-to-end streaming data pipeline examples, starter kits, source and sink connector templates, sample data source generators.
 
 ## Explore
 
