@@ -1,0 +1,19 @@
+services:
+  data-generator-kinesis:
+    build:
+      context: generator_kinesis
+    environment:
+      AWS_REGION: ${AWS_REGION}
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_KINESIS_STREAM_NAME: ${AWS_KINESIS_STREAM_NAME}
+
+  source-connector-kinesis:
+    extends:
+      file: ../../connectors/source/aws-kinesis/compose.yaml
+      service: source-connector-kinesis
+
+  sink-connector-dynamodb:
+    extends:
+      file: ../../connectors/sink/aws-dynamodb/compose.yaml
+      service: sink-connector-dynamodb

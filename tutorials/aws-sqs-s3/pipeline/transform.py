@@ -7,8 +7,26 @@ def handler(data, log):
     text = data["text"].lower()  # Convert text to lowercase to simplify comparisons
 
     # Lists of positive and negative keywords
-    positive_keywords = ['happy', 'joy', 'love', 'wonderful', 'fantastic', 'good', 'great', 'excellent']
-    negative_keywords = ['sad', 'bad', 'hate', 'terrible', 'horrible', 'poor', 'worst', 'awful']
+    positive_keywords = [
+        "happy",
+        "joy",
+        "love",
+        "wonderful",
+        "fantastic",
+        "good",
+        "great",
+        "excellent",
+    ]
+    negative_keywords = [
+        "sad",
+        "bad",
+        "hate",
+        "terrible",
+        "horrible",
+        "poor",
+        "worst",
+        "awful",
+    ]
 
     # Count occurrences of positive and negative keywords
     positive_count = sum(text.count(word) for word in positive_keywords)
