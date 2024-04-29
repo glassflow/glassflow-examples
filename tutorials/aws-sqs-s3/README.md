@@ -2,6 +2,8 @@
 
 This example project demonstrates how to build an end-to-end serverless streaming data pipeline with AWS SQS and S3.
 
+![Data pipeline with Amazing SQS, S3 and GlassFlow](/assets/AWS-sqs-s3-diagram.png)
+
 ## Prerequisites
 
 To run the sample pipeline, you'll need the following:
