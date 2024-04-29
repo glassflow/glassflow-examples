@@ -23,6 +23,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 - [AWS Kinesis](/connectors/source/aws-kinesis)
 - [AWS SQS](/connectors/source/aws-sqs)
+- [Google Pub/Sub](/tutorials/google-pubsub/pubsub_subscriber.py)
 
 ### Sink Connectors
 
