@@ -1,6 +1,8 @@
 # Integrating AWS Kinesis Stream and DynamoDB with GlassFlow
 
-This example project demonstrates how to build an end-to-end serverless streaming data pipeline with AWS Kinesis Stream, GlassFlow and AWS DynamoDB.
+This example project demonstrates how to build an end-to-end serverless streaming data pipeline with AWS Kinesis Data Streams, GlassFlow and AWS DynamoDB.
+
+![Data pipeline with Amazon Kinesis Data Streams, DynamoDB and GlassFlow](/assets/AWS-kinesis-dynamodb.png)
 
 ## Prerequisites
 
@@ -24,7 +26,7 @@ To run the sample pipeline, you'll need the following:
     cd tutorials/aws-kinesis-dynamodb
     ```
 
-3. Read the following tutorial to learn how to run the GlassFlow and obtain `PIPELINE_ID`, `SPACE_ID` and `PIPELINE_ACCESS_TOKEN` values: [Integrating AWS Kinesis and DynamoDB with GlassFlow]()
+3. Read the following tutorial to learn how to run the GlassFlow and obtain `PIPELINE_ID`, `SPACE_ID` and `PIPELINE_ACCESS_TOKEN` values: [Integrating AWS Kinesis and DynamoDB with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-kinesis-data-streams-and-dynamodb-with-glassflow)
 
 4. Create a `.env` file in the same project directory and fill it with the following environment variables:
 
