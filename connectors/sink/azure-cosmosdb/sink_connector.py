@@ -45,7 +45,7 @@ class SinkConnectorCosmosDB:
             print("Error creating database: ", e)
 
     def _create_container_if_not_exists(self):
-        partition_key = PartitionKey(path="/user_id")
+        partition_key = PartitionKey(path="/id")
         container_name = self.cosmosdb_container_name
         try:
             self.cosmos_db_container = self.cosmos_db.create_container(
