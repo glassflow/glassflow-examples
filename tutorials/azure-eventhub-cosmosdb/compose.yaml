@@ -1,0 +1,17 @@
+services:
+  data-generator:
+    build:
+      context: generator_eventhub
+    environment:
+      AZURE_EVENT_HUB_CONNECTION_STRING: ${AZURE_EVENT_HUB_CONNECTION_STRING}
+      AZURE_EVENT_HUB_NAME: ${AZURE_EVENT_HUB_NAME}
+
+  source-connector-event-hubs:
+    extends:
+      file: ../../connectors/source/azure-event-hubs/compose.yaml
+      service: source-connector-event-hubs
+
+  sink-connector-cosmosdb:
+    extends:
+        file: ../../connectors/sink/azure-cosmosdb/compose.yaml
+        service: sink-connector-cosmosdb
