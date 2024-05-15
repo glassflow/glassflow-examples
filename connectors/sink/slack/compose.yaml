@@ -1,0 +1,9 @@
+services:
+  sink-connector-slack:
+    build:
+      context: .
+    environment:
+      SLACK_WEBHOOK_URL: ${SLACK_WEBHOOK_URL}}
+      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
+      PIPELINE_ID: ${PIPELINE_ID}
+      SPACE_ID: ${SPACE_ID}
