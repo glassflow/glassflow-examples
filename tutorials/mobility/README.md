@@ -14,8 +14,8 @@ Make sure that you have the following before proceeding with the installation:
 
 - [Python is installed](https://www.python.org/downloads/) on your machine.
 - [Pip](https://pip.pypa.io/en/stable/installation/) is installed to manage project packages.
-- You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
-- You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
+- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account).
+- You installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) and logged into your account via the CLI.
 
 ## Installation
 
