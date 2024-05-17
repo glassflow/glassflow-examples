@@ -2,7 +2,6 @@
 """
 import glassflow
 import sys
-import time
 from dotenv import dotenv_values
 import json
 
