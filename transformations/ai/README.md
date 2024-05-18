@@ -73,7 +73,7 @@ PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 
 Replace `your_pipeline_id`, `your_space_id`, and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
 
-### 6. Run the project with Docker Compose:
+#### 6. Run the project with Docker Compose:
     
     ```bash
     docker compose up
