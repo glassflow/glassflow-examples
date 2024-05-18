@@ -28,12 +28,14 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 - [AWS Kinesis](/connectors/source/aws-kinesis)
 - [AWS SQS](/connectors/source/aws-sqs)
+- [Azure Event Hubs](/connectors/source/azure-event-hubs)
 - [Google Pub/Sub](/tutorials/google-pubsub/pubsub_subscriber.py)
 
 ### Sink Connectors
 
 - [AWS DynamoDB](/connectors/sink/aws-dynamodb/)
 - [AWS S3](/connectors/sink/aws-s3)
+- [Azure CosmosDB](/connectors/sink/azure-cosmosdb)
 
 
 ### Getting Started
