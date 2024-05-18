@@ -1,0 +1,3 @@
+python-dotenv==1.0.1
+glassflow
+azure-cosmos==4.6.0

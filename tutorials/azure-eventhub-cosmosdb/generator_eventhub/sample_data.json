@@ -1,0 +1,19 @@
+{
+    "user_id":"30b2dd0a-617a-4bc7-8ba6-d2df607b32f4",
+    "taxi_id":"797d987e-96ad-4b4d-91ba-9ff955482d89",
+    "driver_id":"b1ff81a0-5251-4b7f-81aa-fd90763efa0c",
+    "passenger_current_location":"45.48777612,9.15545458",
+    "passenger_arrival_location":"45.45834813,9.16439999",
+    "drivers_current_location":"45.46335805,9.17438552",
+    "drivers_review":1.5096195053184398,
+    "booking_timestamp":"2024-04-30 21:41:49.300400",
+    "booking_source":"app",
+    "n_passengers":3,
+    "estimated_fare":28.022563825330728,
+    "estimated_arrival_time_in_m":13,
+    "vehicle_details":"minivan",
+    "trip_duration":43,
+    "trip_distance":3.1050024325736274,
+    "trip_rating":1.668809603051172,
+    "trip_id":"4f2b0bac-2b8d-45f5-8b3c-9c94be0dbf4c"
+ }

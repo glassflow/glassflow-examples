@@ -34,7 +34,7 @@ Make sure that you have the following before proceeding with the installation:
 3. Create a new virtual environment:
     
     ```bash
-    virtualenv venv && source venv/bin/activate
+    python -m venv .venv && source .venv/bin/activate
     ```
     
 4. Install the required dependencies:

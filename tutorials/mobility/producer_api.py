@@ -2,7 +2,6 @@
 Get mobility events data via a mockserver and publish it to glassflow
 """
 import glassflow
-from time import sleep
 from dotenv import dotenv_values
 import requests
 
