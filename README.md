@@ -20,18 +20,20 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
 - [GlassFlow, Azure Event Hubs and CosmosDB Integration Pipeline Example](tutorials/azure-eventhub-cosmosdb/) - Integrate Azure Event Hubs and CosmosDB with GlassFlow to ingest and transform real-time data.
 
+### Transformations
+
+- [AI-powered transformation for real-time logs data anomaly detection](transformations/ai/)
+
 ### Source Connectors
 
 - [AWS Kinesis](/connectors/source/aws-kinesis)
 - [AWS SQS](/connectors/source/aws-sqs)
-- [Azure Event Hubs](/connectors/source/azure-event-hubs)
 - [Google Pub/Sub](/tutorials/google-pubsub/pubsub_subscriber.py)
 
 ### Sink Connectors
 
 - [AWS DynamoDB](/connectors/sink/aws-dynamodb/)
 - [AWS S3](/connectors/sink/aws-s3)
-- [Azure CosmosDB](/connectors/sink/azure-cosmosdb)
 
 
 ### Getting Started

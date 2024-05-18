@@ -1,0 +1,13 @@
+services:
+  data-generator:
+    build:
+      context: generator_logs
+    environment:
+      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
+      PIPELINE_ID: ${PIPELINE_ID}
+      SPACE_ID: ${SPACE_ID}
+
+  sink-connector-slack:
+    extends:
+        file: ../../connectors/sink/slack/compose.yaml
+        service: sink-connector-slack
