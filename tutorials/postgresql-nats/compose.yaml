@@ -1,0 +1,29 @@
+services:
+  postgres:
+    image: postgres:latest
+    command: "-c wal_level=logical -c max_wal_senders=5 -c max_replication_slots=5"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB_NAME}
+      POSTGRES_USER: ${POSTGRES_DB_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_DB_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./generator-sql:/docker-entrypoint-initdb.d
+
+  nats:
+    extends:
+      file: ../../connectors/source/postgresql/compose.yaml
+      service: nats
+  
+  source-connector-postgres:
+    extends:
+      file: ../../connectors/source/postgresql/compose.yaml
+      service: source-connector-postgres
+  
+  debezium:
+    extends:
+      file: ../../connectors/source/postgresql/compose.yaml
+      service: debezium
+

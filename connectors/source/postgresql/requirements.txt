@@ -1,0 +1,3 @@
+python-dotenv==1.0.1
+glassflow
+nats-py==2.7.2
