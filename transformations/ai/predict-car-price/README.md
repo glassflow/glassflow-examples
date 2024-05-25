@@ -12,7 +12,6 @@ Make sure that you have the following before proceeding with the installation:
 - You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
 - You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
 - You have [OpenAI API](https://openai.com/api/) account.
-- Slack account: If don't have a Slack account, sign up for a new free one [here](https://slack.com/get-started) and go to the Slack [Get Started page](https://slack.com/get-started#/createnew).
 
 ## Installation
 
@@ -40,7 +39,7 @@ Make sure that you have the following before proceeding with the installation:
     pip install -r requirements.txt
     ```    
 
-### Steps to run GlassFlow pipeline
+### Steps to run the GlassFlow pipeline
 
 #### 1. Get a new OpenAI API Key
 
@@ -48,7 +47,7 @@ Make sure that you have the following before proceeding with the installation:
 
 #### 2. Set OpenAI API Key
 
-Open `transform.py` file and replace `{REPLACE_WITH_YOUR_OPENAI_API_KEY}` with your actual API key.
+Open the `transform.py` file and replace `{REPLACE_WITH_YOUR_OPENAI_API_KEY}` with your API key.
 
 #### 3. Create a Space via CLI
 
@@ -58,7 +57,7 @@ Open a terminal and create a new space called `examples` to organize multiple pi
 glassflow space create examples
 ```
 
-After the space is created successfully, you will get a SpaceID in the terminal.
+After creating the space successfully, you will get a SpaceID in the terminal.
 
 #### 4. Create a Pipeline via CLI
 
@@ -68,7 +67,7 @@ Use the GlassFlow CLI to create a new data pipeline inside the space.
 glassflow pipeline create predict-car-price --space-id={space_id} --function=transform.py --requirements=openai
 ```
 
-This command initializes the pipeline with a name `anomalies-detection` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
+This command initializes the pipeline with the name `predict-car-price` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
 
 #### 5. Create an environment configuration file
 
