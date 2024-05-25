@@ -1,7 +1,7 @@
 import openai
 import json
 
-openai.api_key = "sk-proj-kp6FXCApPzJf1rH3wiJkT3BlbkFJQu0BrJMNzUs3ELlJgDJl"
+openai.api_key = "{REPLACE_WITH_YOUR_OPENAI_API_KEY}"
 
 
 def handler(data, log):
