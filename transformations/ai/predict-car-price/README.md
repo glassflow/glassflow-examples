@@ -22,10 +22,10 @@ Make sure that you have the following before proceeding with the installation:
     git clone https://github.com/glassflow/glassflow-examples.git
     ```
     
-2. Navigate to the project directory:
+2. Choose `demo/conference` branch and navigate to the project directory:
     
     ```bash
-    cd transformations/ai
+    cd transformations/ai/predict-car-price
     ```
 
 3. Create a new virtual environment:
