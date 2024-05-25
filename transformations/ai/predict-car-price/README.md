@@ -1,6 +1,7 @@
-# AI transformation for real-time data anomaly detection
+# AI transformation for real-time car price data recommendation pipeline
 
-This example transformation demontrates data anomaly detection with GlassFlow and OpenAI to monitor server logs to detect unusual patterns or suspicious activities and send notifications to Slack.
+This example transformation demonstrates a streaming data pipeline with GlassFlow and OpenAI to monitor real-time car data
+and predict future price.
 
 Follow these steps to run the transformation function.
 
@@ -8,13 +9,10 @@ Follow these steps to run the transformation function.
 
 Make sure that you have the following before proceeding with the installation:
 
-- [Docker](https://www.docker.com/get-started) is installed on your machine
 - You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
 - You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
 - You have [OpenAI API](https://openai.com/api/) account.
 - Slack account: If don't have a Slack account, sign up for a new free one [here](https://slack.com/get-started) and go to the Slack [Get Started page](https://slack.com/get-started#/createnew).
-- Slack workspace: You need access to a Slack workspace where you're an admin. If you are creating just a new workspace, follow [this guide](https://slack.com/help/articles/206845317-Create-a-Slack-workspace).
-- You created an [incoming webhook](https://api.slack.com/messaging/webhooks) for your Slack workspace.
 
 ## Installation
 
@@ -29,6 +27,18 @@ Make sure that you have the following before proceeding with the installation:
     ```bash
     cd transformations/ai
     ```
+
+3. Create a new virtual environment:
+    
+    ```bash
+    python -m venv .venv && source .venv/bin/activate
+    ```
+    
+4. Install the required dependencies:
+    
+    ```
+    pip install -r requirements.txt
+    ```    
 
 ### Steps to run GlassFlow pipeline
 
@@ -55,7 +65,7 @@ After the space is created successfully, you will get a SpaceID in the terminal.
 Use the GlassFlow CLI to create a new data pipeline inside the space. 
 
 ```bash
-glassflow pipeline create anomalies-detection --space-id={space_id} --function=transform.py
+glassflow pipeline create predict-car-price --space-id={space_id} --function=transform.py --requirements=openai
 ```
 
 This command initializes the pipeline with a name `anomalies-detection` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
@@ -65,7 +75,6 @@ This command initializes the pipeline with a name `anomalies-detection` in the `
 Add a `.env` file in the project directory and add the following configuration variables:
 
 ```bash
-SLACK_WEBHOOK_URL=your_slack_workspace_webhook_url
 PIPELINE_ID=your_pipeline_id
 SPACE_ID=your_space_id
 PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
@@ -73,8 +82,18 @@ PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 
 Replace `your_pipeline_id`, `your_space_id`, and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
 
-#### 6. Run the project with Docker Compose:
-    
-    ```bash
-    docker compose up
-    ```
+#### 6. Run data producer
+
+Run the `producer.py` script to start publishing data:
+
+```bash
+python producer.py
+```
+
+#### 7. Run data consumer
+
+Run the `consumer.py` to retrieve transformed data from the pipeline:
+
+```bash
+python consumer.py
+```
