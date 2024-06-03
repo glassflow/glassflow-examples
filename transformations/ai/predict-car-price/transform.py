@@ -6,15 +6,15 @@ openai.api_key = "{REPLACE_WITH_YOUR_OPENAI_API_KEY}"
 
 def handler(data, log):
     """
-    Generate AI insights, detect anomalies and transform server logs data.
+    Generate AI insights to predict car price data.
     """
-    log.info("Event:" + json.dumps(data), data=data)
+    # log.info("Event:" + json.dumps(data), data=data)
 
-    insights = detect_anomalies(data)
+    insights = predict_price(data)
     return json.loads(insights)
 
 
-def detect_anomalies(log):
+def predict_price(data):
     # Generate insights using OpenAI's chat completion endpoint
     response = openai.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -22,14 +22,14 @@ def detect_anomalies(log):
         messages=[
             {
                 "role": "system",
-                "content": "You are a great data analyst to detect anomalies on server logs.",
+                "content": "You are a great data analyst to predict car data prices.",
             },
             {
                 "role": "user",
-                "content": f"Analyze the following log: {log}, identify if it is normal, unusual or suspicious and return only normal, unusual or suspicious in the JSON with status attribute and log itself as a second variable",
+                "content": f"Analyze the following vehicle data: {data}, predict its price and return only the orginal full JSON with additional suggested_price attribute and value added",
             },
         ],
-        max_tokens=100,
+        max_tokens=500,
         temperature=0.5,
     )
 
