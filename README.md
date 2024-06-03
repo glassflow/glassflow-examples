@@ -20,9 +20,10 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
 - [GlassFlow, Azure Event Hubs and CosmosDB Integration Pipeline Example](tutorials/azure-eventhub-cosmosdb/) - Integrate Azure Event Hubs and CosmosDB with GlassFlow to ingest and transform real-time data.
 
-### Transformations
+### Use-cases
 
-- [AI-powered transformation for real-time logs data anomaly detection](transformations/ai/)
+- [AI-powered transformation for real-time logs data anomaly detection](use-cases/real-time-data-anomaly-detection/)
+- [Real-time car price data recommendation pipeline](use-cases/predict-car-price/)
 
 ### Source Connectors
 
