@@ -8,7 +8,7 @@
 
 # GlassFlow Code Samples
 
-This repository is your go-to resource for exploring the capabilities of GlassFlow through a variety of end-to-end streaming data pipeline examples, starter kits, source and sink connector templates, sample data source generators.
+This repository is your go-to resource for exploring the capabilities of GlassFlow through various end-to-end streaming data pipeline examples, starter kits, source and sink connector templates, sample data source generators.
 
 ## Explore
 
@@ -40,7 +40,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### Getting Started
 
-1. Begin by cloning this repository to your local machine to access all the examples and resources.
+1. Start with cloning this repository to your local machine to access all the examples and resources.
     
     ```bash
     git clone https://github.com/glassflow/glassflow-examples.git
@@ -49,6 +49,6 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 2. Navigate through the repository to find examples that match your interests or use case.
     
     ```bash
-    cd examples
+    cd tutorials
     ```
 3. Visit the developer documentation for more information: https://learn.glassflow.dev/docs
