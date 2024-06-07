@@ -14,11 +14,10 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### End-to-end stream processing pipelines
 
-- [GlassFlow, AWS Simple Queue Service (SQS) and AWS S3 Integration Pipeline Example](tutorials/aws-sqs-s3/) - Integrate AWS SQS with GlassFlow to ingest, transform real-time data and write results to S3.
-- [GlassFlow, AWS Kinesis Data Stream and AWS DynamoDB Integration Pipeline Example](tutorials/aws-kinesis-dynamodb/) - Integrate AWS Kinesis Data Stream with GlassFlow to ingest, transform real-time data and write results to DynamoDB.
-- [Mobility data pipeline](tutorials/mobility/) - Creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data.
-- [GlassFlow and Google Pub/Sub Integration Pipeline Example](tutorials/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
-- [GlassFlow, Azure Event Hubs and CosmosDB Integration Pipeline Example](tutorials/azure-eventhub-cosmosdb/) - Integrate Azure Event Hubs and CosmosDB with GlassFlow to ingest and transform real-time data.
+- [GlassFlow, AWS Simple Queue Service (SQS) and AWS S3 Integration Pipeline Example](integrations/aws-sqs-s3/) - Integrate AWS SQS with GlassFlow to ingest, transform real-time data and write results to S3.
+- [GlassFlow, AWS Kinesis Data Stream and AWS DynamoDB Integration Pipeline Example](integrations/aws-kinesis-dynamodb/) - Integrate AWS Kinesis Data Stream with GlassFlow to ingest, transform real-time data and write results to DynamoDB.
+- [GlassFlow and Google Pub/Sub Integration Pipeline Example](integrations/google-pubsub/) - Integrate Google Cloud Pub/Sub with GlassFlow to ingest and transform real-time data.
+- [GlassFlow, Azure Event Hubs and CosmosDB Integration Pipeline Example](integrations/azure-eventhub-cosmosdb/) - Integrate Azure Event Hubs and CosmosDB with GlassFlow to ingest and transform real-time data.
 
 ### Transformations
 
