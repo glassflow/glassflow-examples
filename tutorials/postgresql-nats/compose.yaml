@@ -12,18 +12,23 @@ services:
       - ./data/postgres:/var/lib/postgresql/data
       - ./generator-sql:/docker-entrypoint-initdb.d
 
-  nats:
-    extends:
-      file: ../../connectors/source/postgresql/compose.yaml
-      service: nats
+  # nats:
+  #   extends:
+  #     file: ../../connectors/source/postgresql/compose.yaml
+  #     service: nats
   
-  source-connector-postgres:
+  source-connector-nats:
     extends:
-      file: ../../connectors/source/postgresql/compose.yaml
-      service: source-connector-postgres
+      file: ../../connectors/source/nats-jetstream/compose.yaml
+      service: source-connector-nats
   
   debezium:
-    extends:
-      file: ../../connectors/source/postgresql/compose.yaml
-      service: debezium
+    image: docker.io/debezium/server:latest
+    volumes:
+      - ./application.properties:/debezium/conf/application.properties
+    depends_on:
+      - source-connector-nats
+      # - nats
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 

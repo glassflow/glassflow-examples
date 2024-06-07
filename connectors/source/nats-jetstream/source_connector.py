@@ -5,14 +5,15 @@ from dotenv import load_dotenv
 import nats
 import glassflow
 
-class PostgreSQLSourceConnector:
-    def __init__(self, glassflow_client):
+
+class NatsJetstreamSourceConnector:
+    def __init__(self, nats_jetsream_subjects, glassflow_client):
         self.glassflow_client = glassflow_client
-        self.nats_subject = "postgres.*.*"
+        self.nats_subject = nats_jetsream_subjects
         self.loop = asyncio.get_event_loop()
 
     async def on_event(self, msg):
-        event_data_json = json.loads(msg.data.decode('utf-8'))
+        event_data_json = json.loads(msg.data.decode("utf-8"))
         response = self.glassflow_client.publish(request_body=event_data_json)
         if response.status_code == 200:
             print("Data sent successfully to GlassFlow")
@@ -27,27 +28,33 @@ async def main():
     # Load environment variables
     load_dotenv()
 
-    # Initialize the GlassFlow client
     pipeline_id = os.getenv("PIPELINE_ID")
     space_id = os.getenv("SPACE_ID")
     pipeline_access_token = os.getenv("PIPELINE_ACCESS_TOKEN")
+    nats_jetsream_url = os.getenv("NATS_JETSREAM_URL")
+    nats_jetsream_subjects = os.getenv("NATS_JETSREAM_SUBJECTS")
+
+    # Initialize the GlassFlow client
     glassflow_client = glassflow.GlassFlowClient().pipeline_client(
         space_id=space_id,
         pipeline_id=pipeline_id,
         pipeline_access_token=pipeline_access_token,
     )
 
-    # Initialize the PostgreSQL source connector with the GlassFlow client
-    pg_connector = PostgreSQLSourceConnector(glassflow_client)
-
     # Initialize the NATS Jetstream
-    nc = await nats.connect("nats://nats:4222")
+    nc = await nats.connect(nats_jetsream_url)
     print(f"Connected to NATS at {nc.connected_url.netloc}...")
     js = nc.jetstream()
-    
+
+    # Initialize the NatsJetsream source connector with the GlassFlow client
+    nats_connector = NatsJetstreamSourceConnector(
+        nats_jetsream_subjects, glassflow_client
+    )
+
     # Start receiving events
     while True:
-        await pg_connector.receive(js)
+        await nats_connector.receive(js)
+
 
 if __name__ == "__main__":
     asyncio.run(main())
