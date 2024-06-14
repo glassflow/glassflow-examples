@@ -2,7 +2,7 @@ import json
 
 
 def handler(data, log):
-    log.info("Event:" + json.dumps(data), data=data)
+    log.info("Event received: " + json.dumps(data))
 
     # Check for required fields
     required_fields = ["text", "user_id"]
