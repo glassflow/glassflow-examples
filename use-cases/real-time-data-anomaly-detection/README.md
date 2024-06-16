@@ -1,16 +1,16 @@
-# AI transformation for real-time data anomaly detection
+# Real-time data anomaly detection with AI
 
-This example transformation demontrates data anomaly detection with GlassFlow and OpenAI to monitor server logs to detect unusual patterns or suspicious activities and send notifications to Slack.
+This example real-time pipeline demonstrates data anomaly detection with GlassFlow and OpenAI to monitor server logs to detect unusual patterns or suspicious activities and send notifications to Slack.
 
-Follow these steps to run the transformation function.
+Follow these steps to run the pipeline.
 
 ## Prerequisites
 
 Make sure that you have the following before proceeding with the installation:
 
 - [Docker](https://www.docker.com/get-started) is installed on your machine
-- You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
-- You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
+- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account).
+- You installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) and logged into your account via the CLI.
 - You have [OpenAI API](https://openai.com/api/) account.
 - Slack account: If don't have a Slack account, sign up for a new free one [here](https://slack.com/get-started) and go to the Slack [Get Started page](https://slack.com/get-started#/createnew).
 - Slack workspace: You need access to a Slack workspace where you're an admin. If you are creating just a new workspace, follow [this guide](https://slack.com/help/articles/206845317-Create-a-Slack-workspace).
