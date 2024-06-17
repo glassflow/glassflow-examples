@@ -10,7 +10,7 @@ import glassflow
 import os
 
 
-class GoogleAnalyticsDataFetcher:
+class GoogleAnalyticsDataConnector:
     def __init__(self, property_id):
         self.property_id = property_id
         self.client = BetaAnalyticsDataClient()
@@ -74,7 +74,7 @@ def main():
 
     # Initialize Google Analytics data fetcher
     property_id = os.environ["GA_PROPERTY_ID"]
-    data_fetcher = GoogleAnalyticsDataFetcher(property_id)
+    data_fetcher = GoogleAnalyticsDataConnector(property_id)
 
     # Schedule message sending to GlassFlow
     EVENTS_PER_SECOND = 5
