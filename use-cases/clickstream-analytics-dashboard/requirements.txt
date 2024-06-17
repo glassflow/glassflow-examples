@@ -1,0 +1,9 @@
+python-dotenv==1.0.1
+Faker==24.8.0
+schedule==1.2.1
+glassflow
+streamlit
+plotly
+pandas
+google-analytics-data==0.18.8
+google-auth-oauthlib==1.2.0

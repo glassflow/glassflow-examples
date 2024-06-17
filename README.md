@@ -17,6 +17,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [Mobility data pipeline](use-cases/mobility/)
 - [Real-time logs data anomaly detection with AI-powered transformation](use-cases/real-time-data-anomaly-detection/)
 - [Real-time price recommendation with AI-powered transformation](use-cases/predict-car-price/)
+- [Clickstream analytics dashboard](use-cases/clickstream-analytics-dashboard/)
 
 ### End-to-end stream processing pipelines
 
