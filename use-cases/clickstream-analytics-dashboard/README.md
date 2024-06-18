@@ -124,8 +124,8 @@ python fake_producer.py
 
 #### 2. Run the dashboard
 
-Run the `dashboard.py` with Streamlit command to run the dashboard:
+Run the `consumer.py` with Streamlit command to run the dashboard:
 
 ```bash
-streamlit run dashboard.py
+streamlit run consumer.py
 ```
