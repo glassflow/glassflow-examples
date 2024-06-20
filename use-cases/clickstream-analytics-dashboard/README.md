@@ -1,6 +1,6 @@
 # Clickstream analytics dashboard
 
-This example streaming data pipeline with GlassFlow demonstrates how to build a clickstream analytics dashboard for a typical websie using [Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1), [Streamlit](https://streamlit.io/) and [Plotly](https://plotly.com/).
+This example streaming data pipeline with GlassFlow demonstrates how to build a clickstream analytics dashboard for a typical website using [Google Analytics Data API](https://developers.google.com/analytics/devguides/reporting/data/v1), [Streamlit](https://streamlit.io/) and [Plotly](https://plotly.com/).
 
 ![Clickstream dashboard with GlassFlow](/assets/Clickstream%20analytics%20dashboard%20use%20case.gif)
 
