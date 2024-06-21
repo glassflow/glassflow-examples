@@ -1,7 +1,17 @@
 import json
 
-
 def handler(data, log):
+    """
+    This function processes ticket data, categorizes the ticket based on its description,
+    and enriches the ticket data with the identified category. Output event can be sent to vector databases.
+
+    Args:
+        data (dict): The input ticket data containing at least 'ticket_description'.
+        log (object): Logger object for logging information.
+
+    Returns:
+        dict: The enriched ticket data with an additional 'category' field.
+    """
     log.info("Event received: " + json.dumps(data))
 
     # Keywords for categorizing tickets
