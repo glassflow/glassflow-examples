@@ -9,12 +9,11 @@ import sys
 def read_data_from_pipeline(file_path):
     config = dotenv_values(".env")
     pipeline_id = config.get("PIPELINE_ID")
-    space_id = config.get("SPACE_ID")
     token = config.get("PIPELINE_ACCESS_TOKEN")
 
     client = glassflow.GlassFlowClient()
     pipeline_client = client.pipeline_client(
-        space_id=space_id, pipeline_id=pipeline_id, pipeline_access_token=token
+        pipeline_id=pipeline_id, pipeline_access_token=token
     )
 
     with open(file_path, "a+") as f:
