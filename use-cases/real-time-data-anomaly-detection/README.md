@@ -55,7 +55,7 @@ After the space is created successfully, you will get a SpaceID in the terminal.
 Use the GlassFlow CLI to create a new data pipeline inside the space. 
 
 ```bash
-glassflow pipeline create anomalies-detection --space-id={space_id} --function=transform.py
+glassflow pipeline create anomalies-detection --space-id={space_id} --function=transform.py --requirements=openai
 ```
 
 This command initializes the pipeline with a name `anomalies-detection` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.

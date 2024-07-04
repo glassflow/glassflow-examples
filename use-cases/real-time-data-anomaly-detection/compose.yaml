@@ -1,7 +1,7 @@
 services:
-  data-generator:
+  source_connector_logs:
     build:
-      context: generator_logs
+      context: source_connector_logs
     environment:
       PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
       PIPELINE_ID: ${PIPELINE_ID}
