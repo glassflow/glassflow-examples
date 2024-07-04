@@ -67,7 +67,6 @@ Add a `.env` file in the project directory and add the following configuration v
 ```bash
 SLACK_WEBHOOK_URL=your_slack_workspace_webhook_url
 PIPELINE_ID=your_pipeline_id
-SPACE_ID=your_space_id
 PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 ```
 
