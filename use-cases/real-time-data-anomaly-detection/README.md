@@ -70,7 +70,7 @@ PIPELINE_ID=your_pipeline_id
 PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 ```
 
-Replace `your_pipeline_id`, `your_space_id`, and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
+Replace `your_pipeline_id`, `your_pipeline_access_token` and `your_slack_workspace_webhook_url` with appropriate values obtained from your GlassFlow pipeline and Slack Workspace.
 
 #### 6. Run the project with Docker Compose:
     
