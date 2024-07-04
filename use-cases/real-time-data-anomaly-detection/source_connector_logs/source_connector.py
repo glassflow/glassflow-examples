@@ -16,11 +16,9 @@ class SourceConnectorLogs:
             pipeline_access_token=self.pipeline_access_token,
         )
 
-    def setup(self):
-        pass
-
     def send_log_to_glassflow(self):
         log_data = self.data_generator.generate_log()
+        
         response = self.glassflow_client.publish(request_body=log_data)
         if response.status_code == 200:
             print("Log sent to GlassFlow:", log_data)
@@ -41,7 +39,6 @@ class SourceConnectorLogs:
 
 def main():
     source_connector = SourceConnectorLogs()
-    source_connector.setup()
     source_connector.run()
 
 if __name__ == "__main__":

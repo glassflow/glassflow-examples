@@ -11,9 +11,6 @@ class SinkConnectorSlack:
     def __init__(self):
         self.slack_webhook_url = os.getenv("SLACK_WEBHOOK_URL")
 
-    def setup(self):
-        pass
-
     def put(self, data):
         headers = {"Content-Type": "application/json"}
         payload = {"text": json.dumps(data)}
@@ -21,13 +18,9 @@ class SinkConnectorSlack:
         if response.status_code != 200:
             print("Failed to send message to Slack:", response.text)
 
-    def cleanup(self):
-        pass
-
 
 def main():
     sink_connector = SinkConnectorSlack()
-    sink_connector.setup()
 
     pipeline_id = os.environ["PIPELINE_ID"]
     pipeline_access_token = os.environ["PIPELINE_ACCESS_TOKEN"]
@@ -57,7 +50,6 @@ def main():
                 retry_delay = 10
         except KeyboardInterrupt:
             print("Exiting")
-            sink_connector.cleanup()
             break
 
 
