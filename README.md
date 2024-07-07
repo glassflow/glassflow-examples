@@ -42,15 +42,15 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### Getting Started
 
-1. Start with cloning this repository to your local machine to access all the examples and resources.
+1. Start cloning this repository to your local machine to access all the integrations and use cases.
     
     ```bash
     git clone https://github.com/glassflow/glassflow-examples.git
     ```
     
-2. Navigate through the repository to find examples that match your interests or use case.
+2. Navigate through the repository to find examples that match your interests.
     
     ```bash
-    cd tutorials
+    cd use-cases
     ```
 3. Visit the developer documentation for more information: https://learn.glassflow.dev/docs
