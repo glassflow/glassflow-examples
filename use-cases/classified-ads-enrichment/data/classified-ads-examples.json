@@ -1,0 +1,52 @@
+[
+  {
+      "id": "1",
+      "user_id": "1",
+      "title": "Math tutor for high school",
+      "description": "I amd a Math graduate and graduated with honors in the university of Barcelona I can give you theoretical classes and practical labs where we go through problems and their solutions"
+  },
+  {
+    "id": "2",
+    "user_id": "1",
+    "title": "I sell almost new cabinet",
+    "description": "The cabinet is made of oak wood dimensions: 100x80x40",
+    "images": [
+      {
+        "format": "image/jpg",
+        "path": "data/ad2_image1.jpg"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "user_id": "2",
+    "title": "Apple IPhone 14 / 128GB / purple / like new condition",
+    "description": "We are selling our iPhone 14 with 128GB in mint condition. The battery performance is 92%.",
+    "images": [
+      {
+        "format": "image/jpg",
+        "path": "data/ad3_image1.jpg"
+      },
+      {
+        "format": "image/jpg",
+        "path": "data/ad3_image2.jpg"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "user_id": "3",
+    "title": "Eddy Merckx racing bike, Rh 54, carbon",
+    "description": "The bike is in perfect technical condition. It has a carbon fork. It has clear signs of wear, which can be seen in the pictures.\n\nThe front and rear wheels were recently fitted with new tires from Continental.\n\nI'm 1.79 meters tall and was able to ride it well, but I wouldn't recommend it to taller people.\n\nThe bike is not sold with the pedals as in the photo, it is sold with standard pedals.\n\nBicycles can of course be test ridden by arrangement.",
+    "images": [
+      {
+        "format": "image/jpg",
+        "path": "data/ad3_image1.jpg"
+      },
+      {
+        "format": "image/jpg",
+        "path": "data/ad3_image2.jpg"
+      }
+    ]
+  }
+]

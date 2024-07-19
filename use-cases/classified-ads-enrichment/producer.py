@@ -1,7 +1,8 @@
-from dotenv import load_dotenv
-import glassflow
-import os
 import base64
+import glassflow
+import json
+import os
+from dotenv import load_dotenv
 
 
 def encode_image(image_path: str):
@@ -26,33 +27,16 @@ def main():
         pipeline_access_token=pipeline_access_token,
     )
 
-    ads = [
-        {
-            "id": "rdfcw4a53a",
-            "user_id": "54qf4323623",
-            "title": "Math tutor for high school",
-            "description": "I amd a Math graduate and graduated with honors in the university of Barcelona"
-                           "I can give you theoretical classes and practical labs where we go through problems"
-                           "and their solutions",
-        },
-        {
-            "id": "rdfcw4a53a",
-            "user_id": "54qf4323623",
-            "title": "I sell almost new cabinet",
-            "description": """
-                    The cabinet is made of oak wood
-                    dimensions: 100x80x40
-                    """,
-            "images": [
-                {
-                    "format": "image/jpg",
-                    "b64": encode_image("ad_image1.jpg")
-                }
-            ]
-        }
-    ]
-
+    ads = json.load(open("data/classified-ads-examples.json", "r"))
     for ad in ads:
+        # Read images and send them to the pipeline base64 encoded
+        if "images" in ad and len(ad["images"]) > 0:
+            images = []
+            for img in ad["images"]:
+                img_b64v = encode_image(img["path"])
+                images.append(dict(format=img["format"], b64=img_b64v))
+            ad["images"] = images
+
         send_message_to_glassflow(ad, glassflow_client)
 
 
