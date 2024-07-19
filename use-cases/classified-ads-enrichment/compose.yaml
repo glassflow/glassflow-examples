@@ -1,15 +1,13 @@
 services:
-  sink-connector:
-    build:
-      context: .
+  sink-connector-redis:
     environment:
-      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
-      PIPELINE_ID: ${PIPELINE_ID}
       REDIS_HOST: redis-stack
-      PYTHONUNBUFFERED: 1
-    depends_on:
-      redis-stack:
-        condition: service_healthy
+      REDIS_PORT: 6379
+      REDIS_PASSWORD: ${EMPTY:+STRING}
+      REDIS_INDEX: idx
+    extends:
+      file: ../../connectors/sink/redis/compose.yaml
+      service: sink-connector-redis
 
   redis-stack:
     image: redis/redis-stack:latest

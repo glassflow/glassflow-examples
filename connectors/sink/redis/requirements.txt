@@ -1,0 +1,3 @@
+python-dotenv==1.0.1
+redis==5.0.7
+glassflow

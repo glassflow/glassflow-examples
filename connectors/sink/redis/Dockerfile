@@ -4,6 +4,6 @@ ADD requirements.txt /python/src/
 WORKDIR /python/src/
 RUN pip3 install -r requirements.txt
 
-ADD consumer.py /python/src/
+ADD . /python/src/
 
-CMD [ "python", "/python/src/consumer.py" ]
+CMD [ "python", "/python/src/sink_connector.py" ]
