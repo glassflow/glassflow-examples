@@ -1,0 +1,25 @@
+services:
+  sink-connector:
+    build:
+      context: .
+    environment:
+      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
+      PIPELINE_ID: ${PIPELINE_ID}
+      REDIS_HOST: redis-stack
+    depends_on:
+      redis-stack:
+        condition: service_healthy
+
+  redis-stack:
+    image: redis/redis-stack:latest
+    ports:
+      - 6379:6379
+      - 8001:8001
+    command:
+    healthcheck:
+      test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+    volumes:
+      - redis_data:/data
+
+volumes:
+  redis_data:

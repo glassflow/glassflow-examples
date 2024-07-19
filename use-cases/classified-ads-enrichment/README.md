@@ -10,10 +10,8 @@ Make sure that you have the following before proceeding with the installation:
 
 ## Installation
 
-We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) to create a new space and configure the data pipeline. There are two options for data producers:
+We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) to create a new space and configure the data pipeline.
 
-- Use Python script `fake_producer.py` with the Faker library to generate mock clickstream data and push it to GlassFlow. You do not need to Set Up Google Analytics 4 API in this case.
-- Use the Google Analytics 4 Data API integration example code in `ga_producer.py` Python script to push real-time report events to GlassFlow. Learn to how [set up Google Analytics API](#steps-to-set-up-google-analytics-4-api).
 
 1. Clone the `glassflow-examples` repository to your local machine:
     
@@ -71,3 +69,19 @@ PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 ```
 
 Replace `your_pipeline_id` and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
+
+#### 6. Run the project with Docker Compose:
+    
+```bash
+docker compose up
+```
+
+Docker compose will spin up:
+- **Sink Connector**: With a small service that listens to your GlassFlow pipeline and saves the documents to the redis database
+- **Redis Stack**: redis server and [redis insight](http://localhost:8001/)
+
+#### 7. Run producer
+
+```bash
+python producer.py
+```
