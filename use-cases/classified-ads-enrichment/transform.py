@@ -99,6 +99,8 @@ def ad_model(inputs: dict):
 
     ad_prompt = PromptTemplate(template="""
         Give the following classified ad information:
+        - Ad ID: {id}
+        - User ID: {user_id}
         - Title: {title}
         - Description: {description}
         {image_descriptions} 
@@ -124,6 +126,8 @@ def ad_model(inputs: dict):
 
     message = ad_prompt.format(
         format_instructions=inputs["format_instructions"],
+        id=ad.id,
+        user_id=ad.user_id,
         title=ad.title,
         description=ad.description,
         image_descriptions=images_info_str
