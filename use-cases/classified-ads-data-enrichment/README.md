@@ -1,4 +1,4 @@
-# Classified Ads enrichment
+# Classified Ads data enrichment
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glass
 2. Navigate to the project directory:
     
     ```bash
-    cd use-cases/classified-ads-enrichment
+    cd use-cases/classified-ads-data-enrichment
     ```
 
 3. Create a new virtual environment:
@@ -54,7 +54,7 @@ After creating the space successfully, you will get a `SpaceID` in the terminal.
 Create a new data pipeline inside the space.
 
    ```bash
-   glassflow pipeline create classified-ads-enrichment --space-id={space_id} --function=transform.py
+   glassflow pipeline create classified-ads-data-enrichment --space-id={space_id} --function=transform.py
    ```
 
 This command initializes the pipeline with the name `classified-ads-enrichment` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
