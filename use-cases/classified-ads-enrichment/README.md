@@ -43,9 +43,9 @@ We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glass
 
 Open a terminal and create a new space called `examples` to organize multiple pipelines:
 
-```bash
-glassflow space create examples
-```
+   ```bash
+   glassflow space create examples
+   ```
 
 After creating the space successfully, you will get a `SpaceID` in the terminal.
 
@@ -53,9 +53,9 @@ After creating the space successfully, you will get a `SpaceID` in the terminal.
 
 Create a new data pipeline inside the space.
 
-```bash
-glassflow pipeline create classified-ads-enrichment --space-id={space_id} --function=transform.py
-```
+   ```bash
+   glassflow pipeline create classified-ads-enrichment --space-id={space_id} --function=transform.py
+   ```
 
 This command initializes the pipeline with the name `classified-ads-enrichment` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
 
@@ -63,18 +63,18 @@ This command initializes the pipeline with the name `classified-ads-enrichment` 
 
 Add a `.env` file in the project directory and add the following configuration variables:
 
-```bash
-PIPELINE_ID=your_pipeline_id
-PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
-```
+   ```bash
+   PIPELINE_ID=your_pipeline_id
+   PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
+   ```
 
 Replace `your_pipeline_id` and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
 
 #### 6. Run the project with Docker Compose:
     
-```bash
-docker compose up
-```
+   ```bash
+   docker compose up
+   ```
 
 Docker compose will spin up:
 - **Sink Connector**: With a small service that listens to your GlassFlow pipeline and saves the documents to the redis database
@@ -82,6 +82,6 @@ Docker compose will spin up:
 
 #### 7. Run producer
 
-```bash
-python producer.py
-```
+   ```bash
+   python producer.py
+   ```
