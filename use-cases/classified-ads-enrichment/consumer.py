@@ -1,3 +1,5 @@
+import time
+
 from dotenv import load_dotenv
 import glassflow
 import os
@@ -36,7 +38,6 @@ def create_classifieds_index(client: redis.Redis) -> None:
             TextField("$.id", as_name="id"),
             TextField("$.user_id", as_name="user_id"),
             TextField("$.title", as_name="title"),
-            TextField("$.description", as_name="description"),
             TagField("$.category", as_name="category"),
             TextField("$.summary", as_name="summary"),
         )
@@ -73,6 +74,13 @@ def main():
             res = pipeline_client.consume()
             if res.status_code == 200:
                 write_document(redis_client, res.body.event)
+            elif res.status_code == 204:
+                print("204: There are no messages in the queue")
+                time.sleep(5)
+            elif res.status_code == 429:
+                print("429: Too many requests")
+                time.sleep(60)
+            # print("")
         except KeyboardInterrupt:
             print("exiting")
             sys.exit(0)
