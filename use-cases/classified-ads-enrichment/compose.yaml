@@ -6,6 +6,7 @@ services:
       PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
       PIPELINE_ID: ${PIPELINE_ID}
       REDIS_HOST: redis-stack
+      PYTHONUNBUFFERED: 1
     depends_on:
       redis-stack:
         condition: service_healthy
@@ -18,8 +19,3 @@ services:
     command:
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
-    volumes:
-      - redis_data:/data
-
-volumes:
-  redis_data:
