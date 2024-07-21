@@ -1,16 +1,16 @@
-# AI transformation for real-time car price data recommendation pipeline
+# Real-time car price data recommendation pipeline using AI
 
-This example transformation demonstrates a streaming data pipeline with GlassFlow and OpenAI to monitor real-time car data
-and predict future price.
+This example streaming data pipeline with GlassFlow demonstrates how to monitor real-time car data events
+and predict future prices using OpenAI.
 
-Follow these steps to run the transformation function.
+Follow these steps to run the pipeline.
 
 ## Prerequisites
 
 Make sure that you have the following before proceeding with the installation:
 
-- You created a [GlassFlow account](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/create-account).
-- You installed [GlassFlow CLI](https://www.notion.so/o/aR82XtsD8fLEkzPmMtb7/s/pRyi93X0Jn9wrh2Z4Ffm/~/changes/9/get-started/glassflow-cli) and logged into your account via the CLI.
+- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account).
+- You installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) and logged into your account via the CLI.
 - You have [OpenAI API](https://openai.com/api/) account.
 
 ## Installation

@@ -8,33 +8,21 @@ import random
 
 class DataGenerator:
     def __init__(self):
-        # Define a list of actions/events
-        self.actions = [
-            "logged in",
-            "accessed file",
-            "executed command",
-            "accessed directory",
-        ]
         self.fake = Faker()
 
     def generate_record(self):
-        log = ""
-        timestamp = self.fake.date_time_this_year().strftime("[%d/%b/%Y %H:%M:%S]")
-        ip_address = self.fake.ipv4()
-        user = self.fake.user_name()
-        action = random.choice(self.actions)
-        if action == "logged in":
-            log = f"{timestamp} {ip_address} {user} {action} successfully"
-        elif action == "accessed file":
-            file_name = self.fake.file_name()
-            log = f"{timestamp} {ip_address} {user} {action} '{file_name}'"
-        elif action == "executed command":
-            command = self.fake.word()
-            log = f"{timestamp} {ip_address} {user} executed command '{command}'"
-        elif action == "accessed directory":
-            directory = self.fake.file_path(depth=random.randint(1, 3))
-            log = f"{timestamp} {ip_address} {user} accessed directory '{directory}'"
-        return log
+        data = {
+            "activeUsers": str(random.randint(0, 10)),
+            "city": self.fake.city(),
+            "country": self.fake.country(),
+            "deviceCategory": random.choice(["desktop", "mobile", "tablet"]),
+            "eventCount": str(random.randint(1, 20)),
+            "screenPageViews": str(random.randint(1, 10)),
+            "unifiedScreenName": random.choice(
+                ["Home", "Product", "About", "Contact", "Manage pipeline"]
+            ),
+        }
+        return data
 
 
 def send_message_to_glassflow(record_function, glassflow_client):

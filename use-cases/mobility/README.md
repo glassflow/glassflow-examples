@@ -94,6 +94,6 @@ Run the `consumer_file.py` to retrieve transformed data from the pipeline:
 python consumer_file.py
 ```
 
-The script will start consuming data continuously from the pipeline and storing it locally on a .txt file. You can see an example of consumed data [here](https://github.com/glassflow/glassflow-examples/blob/main/tutorials/mobility/mobility_data_transformed.txt). You can further extend this functionality to push the consumed data to cloud storage buckets or real-time databases as per your project requirements.
+The script will start consuming data continuously from the pipeline and storing it locally on a .txt file. You can see an example of consumed data `mobility_data_transformed.txt`. You can further extend this functionality to push the consumed data to cloud storage buckets or real-time databases as per your project requirements.
 
 You can also find instructions on how to run the example project [in the GlassFlow docs](https://learn.glassflow.dev/docs/develop/create-a-pipeline).

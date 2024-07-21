@@ -6,4 +6,4 @@ RUN pip3 install -r requirements.txt
 
 ADD . /python/src/
 
-CMD [ "python", "/python/src/generator.py" ]
+CMD [ "python", "/python/src/source_connector.py" ]
