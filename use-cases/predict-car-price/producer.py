@@ -21,7 +21,7 @@ class DataGenerator:
             "fuelType": random.choice(["petrol", "diesel", "electric", "hybrid"]),
             "tax": self.fake.random_int(min=0, max=500),
             "mpg": self.fake.random_int(min=10, max=60),
-            "engineSize": round(random.uniform(1.0, 5.0), 1)
+            "engineSize": round(random.uniform(1.0, 5.0), 1),
         }
         return car_data
 
@@ -38,10 +38,8 @@ def send_message_to_glassflow(record_function, glassflow_client):
 def main():
     # Initialize GlassFlow client
     pipeline_id = os.environ["PIPELINE_ID"]
-    space_id = os.environ["SPACE_ID"]
     pipeline_access_token = os.environ["PIPELINE_ACCESS_TOKEN"]
     glassflow_client = glassflow.GlassFlowClient().pipeline_client(
-        space_id=space_id,
         pipeline_id=pipeline_id,
         pipeline_access_token=pipeline_access_token,
     )
