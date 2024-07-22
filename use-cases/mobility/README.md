@@ -2,20 +2,16 @@
 
 This project focuses on creating a data pipeline using GlassFlow to process and analyze car-sharing (mobility) services data. The primary objectives include identifying low-fuel vehicles and finding the nearest fuel station based on GPS coordinates and fuel type. It also discounts drivers based on their vehicle's fuel level and proximity to the nearest fuel station.
 
-In this [set of tutorials](https://learn.glassflow.dev/docs/develop/create-a-pipeline), you'll find instructions on setting up the project, including prerequisites and steps for creating the pipeline, implementing data transformation functions, setting up data producers, and configuring data consumers.
 
 ![GlassFlow car sharing pipeline](/assets/GlassFlow%20car%20sharing%20pipeline.png)
 
-Follow these steps to set up the mobility project.
-
 ## Prerequisites
 
-Make sure that you have the following before proceeding with the installation:
+To start with this setup, you need a free GlassFlow account.
 
+- [Sign up for a free account](http://app.glassflow.dev/)
 - [Python is installed](https://www.python.org/downloads/) on your machine.
-- [Pip](https://pip.pypa.io/en/stable/installation/) is installed to manage project packages.
-- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account).
-- You installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) and logged into your account via the CLI.
+- [Download and install Pip](https://pip.pypa.io/en/stable/installation/) to manage project packages.
 
 ## Installation
 
@@ -28,7 +24,7 @@ Make sure that you have the following before proceeding with the installation:
 2. Navigate to the project directory:
     
     ```bash
-    cd tutorials/mobility
+    cd use-cases/mobility
     ```
     
 3. Create a new virtual environment:
@@ -44,41 +40,11 @@ Make sure that you have the following before proceeding with the installation:
     ```
     
 
-## Steps
+## Setting Up the Pipeline with GlassFlow
 
-### 1. Create a Space via CLI
+Follow the [easy steps in the tutorial](https://docs.glassflow.dev/tutorials/use-cases/mobility-project) to create a pipeline using GlassFlow WebApp.
 
-Open a terminal and create a new space called `examples` to organize multiple pipelines:
-
-```bash
-glassflow space create examples
-```
-
-After the space is created successfully, you will get a SpaceID in the terminal.
-
-### 2. Create a Pipeline via CLI
-
-Use the GlassFlow CLI to create a new data pipeline inside the space. 
-
-```bash
-glassflow pipeline create mobilitydemo --space-id={space_id} --function=transform.py
-```
-
-This command initializes the pipeline with a name `mobilitydemo` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
-
-### 3. Create an environment configuration file
-
-Add a `.env` file in the project directory and add the following configuration variables:
-
-```bash
-PIPELINE_ID=your_pipeline_id
-SPACE_ID=your_space_id
-PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
-```
-
-Replace `your_pipeline_id`, `your_space_id`, and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
-
-### 4. Run data producer
+## Run data producer
 
 Run the `producer_api.py` script to start publishing data:
 
@@ -86,7 +52,7 @@ Run the `producer_api.py` script to start publishing data:
 python producer_api.py
 ```
 
-### 5. Run data consumer
+## Run data consumer
 
 Run the `consumer_file.py` to retrieve transformed data from the pipeline:
 
@@ -96,4 +62,4 @@ python consumer_file.py
 
 The script will start consuming data continuously from the pipeline and storing it locally on a .txt file. You can see an example of consumed data `mobility_data_transformed.txt`. You can further extend this functionality to push the consumed data to cloud storage buckets or real-time databases as per your project requirements.
 
-You can also find instructions on how to run the example project [in the GlassFlow docs](https://learn.glassflow.dev/docs/develop/create-a-pipeline).
+You can also find instructions on how to run the example project [in the GlassFlow docs](https://docs.glassflow.dev/tutorials/use-cases/mobility-project).
