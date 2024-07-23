@@ -16,7 +16,7 @@ Make sure that you have the following before proceeding with the installation:
 
 ## Installation
 
-We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) to create a new space and configure the data pipeline.
+We'll use the [GlassFlow WebApp](https://app.glassflow.dev/) to create a new space and configure the data pipeline.
 
 
 1. Clone the `glassflow-examples` repository to your local machine:
@@ -45,25 +45,24 @@ We'll use the [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glass
 
 ### Steps to run the GlassFlow pipeline
 
-#### 1. Create a Space via CLI
+#### 1. Create a Space via WebApp
 
-Open a terminal and create a new space called `examples` to organize multiple pipelines:
+Navigate to the [Spaces page](https://app.glassflow.dev/spaces) and create a new space and called `examples` to organize multiple pipelines. 
 
-   ```bash
-   glassflow space create examples
-   ```
+![Create Space in GlassFlow WebApp](/assets/create-space-in-glassflow-webapp.png)
 
-After creating the space successfully, you will get a `SpaceID` in the terminal.
+#### 2. Create a Pipeline via WebApp
 
-#### 2. Create a Pipeline via CLI
+Create a new data pipeline inside the space in the [Pipelines page](https://app.glassflow.dev/pipelines).
 
-Create a new data pipeline inside the space.
+![Create Pipeline in GlassFlow WebApp](/assets/create-pipeline-in-glassflow-webapp-classified-ads-use-case.png)
 
-   ```bash
-   glassflow pipeline create classified-ads-data-enrichment --space-id={space_id} --function=transform.py
-   ```
-
-This command initializes the pipeline with the name `classified-ads-enrichment` in the `examples` space and specifies the transformation function `transform.py`. After running the command, it returns a new **Pipeline ID** with its **Access Token**.
+Follow the pipeline creation steps:
+1. Specify the pipeline name `classified-ads-enrichment` and select the space for it (`examples`)
+2. Select SDK data source
+3. Upload `transform.py`
+4. Select SDK data sink
+5. Confirm pipeline creation and copy the new **Pipeline ID** and its **Access Token**
 
 #### 3. Create an environment configuration file
 
