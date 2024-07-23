@@ -40,9 +40,22 @@ To start with this setup, you need a free GlassFlow account.
     ```
     
 
-## Setting Up the Pipeline with GlassFlow
+## Steps to run the GlassFlow pipeline
 
-Follow the [easy steps in the tutorial](https://docs.glassflow.dev/tutorials/use-cases/mobility-project) to create a pipeline using GlassFlow WebApp.
+### 1. Setting Up the Pipeline with GlassFlow WebApp
+
+Follow the [easy steps in the tutorial](https://docs.glassflow.dev/tutorials/use-cases/real-time-clickstream-analytics#setting-up-the-pipeline-with-glassflow) to create a pipeline using GlassFlow WebApp.
+
+### 2. Create an environment configuration file
+
+Add a `.env` file in the project directory and add the following configuration variables:
+
+```bash
+PIPELINE_ID=your_pipeline_id
+PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
+```
+
+Replace `your_pipeline_id` and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
 
 ## Run data producer
 
