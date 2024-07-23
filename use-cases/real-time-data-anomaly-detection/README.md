@@ -9,8 +9,8 @@ Follow these steps to run the pipeline.
 Make sure that you have the following before proceeding with the installation:
 
 - [Docker](https://www.docker.com/get-started) is installed on your machine
-- You created a [GlassFlow account](https://learn.glassflow.dev/docs/get-started/create-account).
-- You installed [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli) and logged into your account via the CLI.
+- You created a [GlassFlow account](https://docs.glassflow.dev/get-started/create-account).
+- You installed [GlassFlow CLI](https://docs.glassflow.dev/get-started/glassflow-cli#installation) and logged into your account via the CLI.
 - You have [OpenAI API](https://openai.com/api/) account.
 - Slack account: If don't have a Slack account, sign up for a new free one [here](https://slack.com/get-started) and go to the Slack [Get Started page](https://slack.com/get-started#/createnew).
 - Slack workspace: You need access to a Slack workspace where you're an admin. If you are creating just a new workspace, follow [this guide](https://slack.com/help/articles/206845317-Create-a-Slack-workspace).

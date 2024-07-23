@@ -53,4 +53,4 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
     ```bash
     cd use-cases
     ```
-3. Visit the developer documentation for more information: https://learn.glassflow.dev/docs
+3. Visit the developer documentation for more information: https://docs.glassflow.dev
