@@ -5,12 +5,13 @@ from dotenv import load_dotenv
 from data_generator import DataGenerator
 import glassflow
 
+
 class SourceConnectorLogs:
     def __init__(self):
         load_dotenv()
         self.pipeline_id = os.getenv("PIPELINE_ID")
         self.pipeline_access_token = os.getenv("PIPELINE_ACCESS_TOKEN")
-        
+
         self.data_generator = DataGenerator()
         # Initiate GlassFlow pipeline client
         self.glassflow_client = glassflow.GlassFlowClient().pipeline_client(
@@ -36,6 +37,7 @@ class SourceConnectorLogs:
                 time.sleep(1)
         except KeyboardInterrupt:
             print("Exiting...")
+
 
 if __name__ == "__main__":
     SourceConnectorLogs().run()
