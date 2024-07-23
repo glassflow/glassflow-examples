@@ -1,5 +1,11 @@
 # Classified Ads data enrichment
 
+In this example, we demonstrate how to enrich user input for classified ads with [Langchain](https://www.langchain.com/) and save the results on [Redis](https://redis.io/). 
+
+![Redis Dashbaord with Glassflow](/assets/Classified-Ads-enrichment-use-case.gif)
+
+Follow these steps to run the pipeline.
+
 ## Prerequisites
 
 Make sure that you have the following before proceeding with the installation:
