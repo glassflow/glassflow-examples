@@ -80,8 +80,13 @@ Docker compose will spin up:
 - **Sink Connector**: With a small service that listens to your GlassFlow pipeline and saves the documents to the redis database
 - **Redis Stack**: redis server and [redis insight](http://localhost:8001/)
 
-#### 5. Run producer
+### 5. Run producer
+The producer will send the [example classified ads](data/classified-ads-examples.json) to the pipeline and encode the images to base64:
 
    ```bash
    python producer.py
    ```
+
+### 6. See the enriched data on Redis Insight
+
+Open the Redis Insight UI in your browser (https://localhost:8001) and have a look at the enriched data.
