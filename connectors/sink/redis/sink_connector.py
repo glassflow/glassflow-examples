@@ -46,6 +46,8 @@ class SinkConnectorRedis:
         Check if Redis index exists
         """
         indices = self.redis_client.execute_command('FT._LIST')
+        print("Existing Redis indices:", indices)
+        indices = [idx.decode() for idx in indices]
         return self.redis_index in indices
 
     def _create_index(self):
