@@ -5,6 +5,8 @@ services:
       REDIS_PORT: 6379
       REDIS_PASSWORD: ${EMPTY:+STRING}
       REDIS_INDEX: idx
+      PIPELINE_ACCESS_TOKEN: ${PIPELINE_ACCESS_TOKEN}
+      PIPELINE_ID: ${PIPELINE_ID}
     extends:
       file: ../../connectors/sink/redis/compose.yaml
       service: sink-connector-redis
