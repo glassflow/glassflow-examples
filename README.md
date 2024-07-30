@@ -18,6 +18,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [Real-time logs data anomaly detection with AI-powered transformation](use-cases/real-time-data-anomaly-detection/)
 - [Real-time price recommendation with AI-powered transformation](use-cases/predict-car-price/)
 - [Clickstream analytics dashboard](use-cases/clickstream-analytics-dashboard/)
+- [Classified Ads data enrichment](use-cases/classified-ads-data-enrichment)
 
 ### End-to-end stream processing pipelines
 
@@ -38,6 +39,7 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 - [AWS DynamoDB](/connectors/sink/aws-dynamodb/)
 - [AWS S3](/connectors/sink/aws-s3)
 - [Azure CosmosDB](/connectors/sink/azure-cosmosdb)
+- [Redis](/connectors/sink/redis)
 
 
 ### Getting Started
