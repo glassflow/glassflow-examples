@@ -22,7 +22,7 @@ def get_ads_data(path):
                 yield x
 
 
-def main(data_path: str):
+def main(data_path: str, limit: int = 25):
     pipeline_id = os.environ["PIPELINE_ID"]
     pipeline_access_token = os.environ["PIPELINE_ACCESS_TOKEN"]
     glassflow_client = glassflow.GlassFlowClient().pipeline_client(
@@ -30,7 +30,10 @@ def main(data_path: str):
         pipeline_access_token=pipeline_access_token,
     )
 
-    for ad in get_ads_data(data_path):
+    for idx, ad in enumerate(get_ads_data(data_path)):
+        if idx >= limit:
+            break
+
         send_message_to_glassflow(ad, glassflow_client)
 
 
