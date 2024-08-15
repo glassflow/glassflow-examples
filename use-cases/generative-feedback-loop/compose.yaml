@@ -1,0 +1,70 @@
+services:
+  weaviate:
+    command:
+      - --host
+      - 0.0.0.0
+      - --port
+      - '8080'
+      - --scheme
+      - http
+    image: cr.weaviate.io/semitechnologies/weaviate:1.26.1
+    ports:
+      - 8080:8080
+      - 50051:50051
+    volumes:
+      - weaviate_data:/var/lib/weaviate
+    restart: on-failure:0
+    env_file:
+      - .env
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: 'true'
+      PERSISTENCE_DATA_PATH: '/var/lib/weaviate'
+      DEFAULT_VECTORIZER_MODULE: 'text2vec-openai'
+      ENABLE_MODULES: 'text2vec-openai,generative-openai'
+      CLUSTER_HOSTNAME: 'node1'
+    healthcheck:
+      test: if curl -sSf http://localhost:8080/v1/.well-known/ready; then exit 0; fi || exit 1
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  sink-connector-weaviate:
+    env_file:
+      - .env
+    environment:
+      WEAVIATE_HTTP_HOST: weaviate
+      WEAVIATE_HTTP_PORT: 8080
+      WEAVIATE_HTTP_SECURE: false
+      WEAVIATE_GRPC_HOST: weaviate
+      WEAVIATE_GRPC_PORT: 50051
+      WEAVIATE_GRPC_SECURE: false
+      WEAVIATE_COLLECTION: Listing
+      WEAVIATE_COLLECTION_SCHEMA: '{"class":"Listing","description":"AirBnB listings","vectorizer":"text2vec-openai","moduleConfig":{"text2vec-openai":{"model":"text-embedding-3-small"},"generative-openai":{"model":"gpt-3.5-turbo"}},"vectorIndexType":"hnsw","properties":[{"name":"listing_id","dataType":["int"],"indexFilterable":true},{"name":"name","dataType":["text"],"indexFilterable":true,"indexSearchable":true},{"name":"price","dataType":["number"]},{"name":"host_id","dataType":["int"]},{"name":"latitude","dataType":["number"]},{"name":"host_name","dataType":["text"],"indexFilterable":true,"indexSearchable":true},{"name":"longitude","dataType":["number"]},{"name":"room_type","dataType":["text"],"indexFilterable":true},{"name":"last_review","dataType":["text"]},{"name":"neighbourhood","dataType":["text"],"indexFilterable":true},{"name":"minimum_nights","dataType":["int"],"indexFilterable":true},{"name":"availability_365","dataType":["int"]},{"name":"number_of_reviews","dataType":["int"]},{"name":"reviews_per_month","dataType":["number"]},{"name":"neighbourhood_group","dataType":["text"],"indexFilterable":true},{"name":"calculated_host_listings_count","dataType":["int"]},{"name":"summary","dataType":["text"],"indexFilterable":true,"indexSearchable":true}]}'
+    depends_on:
+      weaviate:
+        condition: service_healthy
+    extends:
+      file: ../../connectors/sink/weaviate/compose.yaml
+      service: sink-connector-weaviate
+
+  streamlit-search-ui:
+    build:
+      context: search-ui/
+    ports:
+      - 8501:8501
+    env_file:
+      - .env
+    environment:
+      WEAVIATE_HTTP_HOST: weaviate
+      WEAVIATE_HTTP_PORT: 8080
+      WEAVIATE_HTTP_SECURE: false
+      WEAVIATE_GRPC_HOST: weaviate
+      WEAVIATE_GRPC_PORT: 50051
+      WEAVIATE_GRPC_SECURE: false
+    depends_on:
+      weaviate:
+        condition: service_healthy
+
+volumes:
+  weaviate_data:
