@@ -1,3 +1,4 @@
+import sys
 import os
 import time
 from csv import DictReader
@@ -19,35 +20,26 @@ def load_data() -> List[dict]:
         return list(reader)
 
 
-def insert_data(data: List[dict], client: Client, limit: int = None):
+def update_table(data: List[dict], client: Client, limit: int = None):
     for idx, row in enumerate(data):
         if idx >= limit:
             break
 
         try:
-            if not row['last_review']:
-                row['last_review'] = None
-            if not row['reviews_per_month']:
-                row['reviews_per_month'] = None
-
             client.table(SUPABASE_TABLE_NAME)\
-                .insert(row)\
+                .update({"is_listing_in_weaviate": True})\
+                .eq("id", row["id"])\
                 .execute()
-
-            print(f"Inserted row {idx+1}")
+            print(f"Updated row {idx + 1}")
         except Exception as e:
-            if e.code == '23505':
-                print(f"Failed to insert data: {e.message}")
-            else:
-                print(f"Failed to insert data: {row}")
-                raise e
-
+            print(f"Failed to insert data: {row}")
+            raise e
         if (idx+1) % 50 == 0:
             time.sleep(1)
 
 
 if __name__ == '__main__':
-    LIMIT = 100
+    LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
     data = load_data()
-    insert_data(data, client, limit=LIMIT)
+    update_table(data, client, limit=LIMIT)
