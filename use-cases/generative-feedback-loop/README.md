@@ -1,12 +1,7 @@
 # Generative Feedback Loop
 
-TODO: Change use case description and create gif
-
-In this example, we demonstrate how to 
-
-user input for classified ads with [Langchain](https://www.langchain.com/) and save the results on [Redis](https://redis.io/). 
-
-![Redis Dashbaord with Glassflow](/assets/Classified-Ads-enrichment-use-case.gif)
+In this example, we demonstrate how to use GlassFlow to connect changes in your Supabase database to your 
+Weaviate vector database.
 
 ## Prerequisites
 
