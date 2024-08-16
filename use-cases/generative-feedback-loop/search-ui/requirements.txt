@@ -1,2 +1,2 @@
-streamlit
+streamlit==1.37.0
 weaviate-client==4.7.1

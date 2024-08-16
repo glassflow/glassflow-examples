@@ -108,13 +108,6 @@ ENV_VARS = ["OPENAI_API_KEY", "WEAVIATE_HTTP_HOST", "WEAVIATE_HTTP_PORT",
             "WEAVIATE_GRPC_SECURE"]
 SEARCH_LIMIT = 5
 
-# Search Mode descriptions
-SEARCH_MODES = {
-    "Keyword": ("Keyword search (BM25) ranks documents based on the relative frequencies of search terms.", 0),
-    "Semantic": ("Semantic (vector) search ranks results based on their similarity to your search query.", 1),
-    "Hybrid": ("Hybrid search combines vector and BM25 searches to offer best-of-both-worlds search results.", 0.7),
-}
-
 
 # Functions
 def get_env_vars(env_vars):
@@ -139,14 +132,12 @@ def setup_sidebar():
         st.subheader("The RAG Recommender")
         st.markdown("Your GlassFlow & Weaviate & AI powered apartment recommender. "
                     "Find the perfect apartment for your holidays. Just tell us what you're looking for!")
-        st.header("Settings")
+        st.header("Filters")
 
-        mode = st.radio("Search Mode", options=list(SEARCH_MODES.keys()), index=2)
         price_range = st.slider("Price range", min_value=0, max_value=1000, value=(0, 1000))
-        st.info(SEARCH_MODES[mode][0])
         st.success("Connected to Weaviate", icon="💚")
 
-    return mode, price_range
+    return price_range
 
 
 def setup_weaviate_connection(env_vars: dict):
@@ -164,12 +155,13 @@ def setup_weaviate_connection(env_vars: dict):
     )
 
 
-def perform_search(conn, rag_prompt, price_range, mode):
+def perform_search(conn, query, rag_prompt, price_range):
     """Perform search and display results"""
     with conn.client() as client:
         collection = client.collections.get("Listing")
-        listings = collection.query.fetch_objects(
-            return_properties=["name", "price", "summary"],
+        listings = collection.query.near_text(
+            query=query,
+            return_properties=["name", "price", "neighbourhood", "summary"],
             filters=(
                 Filter.by_property("price").greater_or_equal(price_range[0]) &
                 Filter.by_property("price").less_or_equal(price_range[1])
@@ -180,12 +172,13 @@ def perform_search(conn, rag_prompt, price_range, mode):
 
     if df is None or df.empty:
         with st.chat_message("assistant"):
-            st.write(f"No accommodations found matching your price range and using {mode}. Please try again.")
+            st.write(f"No accommodations found matching your price range. Please try again.")
         st.session_state.messages.append({"role": "assistant", "content": "No movies found. Please try again."})
         return
     else:
         with st.chat_message("assistant"):
             st.write("Raw search results.")
+            st.dataframe(data=df)
             st.write("Now generating recommendation from these: ...")
 
         with conn.client() as client:
@@ -197,7 +190,7 @@ def perform_search(conn, rag_prompt, price_range, mode):
                     Filter.by_property("price").less_or_equal(price_range[1])
                 ),
                 limit=SEARCH_LIMIT,
-                alpha=SEARCH_MODES[mode][1],
+                alpha=1,
                 grouped_task=rag_prompt,
                 grouped_properties=["name", "summary"],
             )
@@ -223,7 +216,7 @@ def main():
 
     env_vars = get_env_vars(ENV_VARS)
     conn = setup_weaviate_connection(env_vars)
-    mode, price_range = setup_sidebar()
+    price_range = setup_sidebar()
 
     if "messages" not in st.session_state:
         st.session_state.messages = []
@@ -250,14 +243,15 @@ def main():
     ))
 
     if st.button("Search") and query:
-        rag_prompt = (f"Suggest one to two accommodations out of the following list, for a {query}. "
+        rag_prompt = (f"Suggest one to two accommodations out of the following "
+                      f"list, taking into account the user's request: {query}. "
                       f"Give a concise yet fun and positive recommendation.")
         prompt = f"Searching for: {query}"
         with st.chat_message("user"):
             st.markdown(prompt)
         st.session_state.messages.append({"role": "user", "content": prompt})
 
-        perform_search(conn, rag_prompt, price_range, mode)
+        perform_search(conn, query, rag_prompt, price_range)
         # st.rerun()
 
 
