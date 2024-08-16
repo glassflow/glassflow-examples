@@ -34,7 +34,6 @@ class SinkConnectorWeaviate:
             skip_init_checks=True,
             **kwargs
         )
-        self.collection = None
 
     def setup(self) -> None:
         self.weaviate_client.connect()
@@ -45,7 +44,6 @@ class SinkConnectorWeaviate:
 
             if not self._check_collection_exists():
                 self._create_collection()
-                self.collection = self.weaviate_client.collections.get(self.collection_name)
         except Exception as e:
             self.cleanup()
             raise e
@@ -70,8 +68,9 @@ class SinkConnectorWeaviate:
             if data:
                 properties = data.get("properties", {})
                 vector = data.get("vector", {})
-                print(f"Writing data to collection {self.collection_name}: {json.dumps(properties)}")
-                self.collection.data.insert(properties=properties, vector=vector)
+                print(f"Writing data to collection {self.collection_name}: {properties}")
+                collection = self.weaviate_client.collections.get(self.collection_name)
+                collection.data.insert(properties=properties, vector=vector)
         except Exception as e:
             print(f"Error writing to collection {self.collection_name}: {e}")
 
