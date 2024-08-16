@@ -84,11 +84,11 @@ Docker compose will spin up:
 Download [data (265MB)](https://drive.google.com/file/d/1LreIZqZIFaBeovZeRq39rcP1oPAlJ49m/view?usp=sharing) and uncompress it:
 
    ```bash
-   tar -zvfx classfied_ads.tar.gz
+   tar -xzvf classfied_ads.tar.gz
    ```
 
 ### 6. Run producer
-The producer will send the [example classified ads](data/classified-ads-examples.json) to the pipeline and encode the images to base64:
+The producer will send the classified ads to the pipeline:
 
    ```bash
    python producer.py <path-to-classifed-ads-data>/
