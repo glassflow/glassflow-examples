@@ -1,7 +1,7 @@
 # Generative Feedback Loop
 
-In this example, we demonstrate how to use GlassFlow to connect changes in your Supabase database to your 
-Weaviate vector database.
+In this example, we demonstrate how to use GlassFlow to connect changes in your [Supabase](https://supabase.com/) 
+database to a vector database ([Weaviate](https://weaviate.io/)) and perform semantic search.
 
 ## Prerequisites
 
@@ -10,8 +10,8 @@ Make sure that you have the following before proceeding with the installation:
 - [Sign up for a free GlassFlow account](http://app.glassflow.dev/).
 - You have an account with [OpenAI API](https://openai.com/api/).
 - Create an [API key](https://platform.openai.com/api-keys).
-- You have an account with [Supabase](https://supabase.com/)
-- You Have Supabase [API key](https://supabase.com/dashboard/project/_/settings/api)
+- You have a [Supabase](https://supabase.com/) account and a table.
+- You have an account on Weaviate and have the REST endpoint url and the API key (https://console.weaviate.cloud/dashboard).
 
 ## Installation
 
@@ -27,17 +27,6 @@ Make sure that you have the following before proceeding with the installation:
     cd use-cases/generative-feedback-loop
     ```
 
-3. Create a new virtual environment:
-    
-    ```bash
-    python -m venv .venv && source .venv/bin/activate
-    ```
-    
-4. Install the required dependencies:
-    
-    ```
-    pip install -r requirements.txt
-    ```
 
 ## Steps to create the GlassFlow pipeline
 
@@ -56,67 +45,19 @@ Follow the pipeline creation steps:
 2. Select Webhook data source
 3. Upload `transform.py`
 4. Choose openai library dependency from the Dependency menu
-5. Select SDK data sink
+5. Select Webhook data sink and fill the URL and headers:
+   1. URL: `https://${WEAVIATE_INSTANCE_URL}/v1/objects`
+   2. Headers:
+      - `Content-Type`: `application/json`
+      - `Authentication`: `Bearer ${WEAVIATE_API_KEY}`
 6. Confirm pipeline creation and copy the new **Pipeline ID**, its **Access Token** and the **Webhook URL**
 
-### 3. Create an environment configuration file
+### 3. Create webhook trigger on Supabase
 
-Add a `.env` file in the project directory and add the following configuration variables:
+Follow [the instructions from Supabase](https://supabase.com/docs/guides/database/webhooks#creating-a-webhook) to 
+create the webhook and hook it to `INSERT` events on your table. Use the pipeline webhook URL from your 
+pipeline's details page and add the following headers `X-Pipeline-Access-Token` and `Content-Type`.
 
-   ```bash
-   PIPELINE_ID=your_pipeline_id
-   PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
-   SUPABASE_URL=https://<PROJECT_REF>.supabase.co
-   SUPABASE_KEY=your_supabase_access_key
-   OPENAI_API_KEY=your_openai_api_key
-   ```
+### 4. Search your database
 
-Set the supabase env variables, you can find your `PROJECT_REF` on your Supabase [project settings](https://supabase.com/dashboard/project/_/settings/general).
-Set the `your_open_api_key`, replace `your_pipeline_id` and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
-
-
-### 4. Run the project with Docker Compose:
-    
-   ```bash
-   docker compose up
-   ```
-
-Docker compose will spin up:
-- **Sink Connector**: With a small service that listens to your GlassFlow pipeline and saves the documents to the weaviate database
-- **Weaviate DB**: weaviate server
-
-### 5. Uncompress AirBnB New York listings
-
-Uncompress the data:
-
-   ```bash
-   cd data
-   tar -xzvf airbnb_vector_search.tar.gz
-   ```
-
-### 6. Create Supabase table and connect to pipeline webhook
-
-1. [**Create new table**](https://supabase.com/dashboard/project/_/database/tables) 
-   1. Enable Realtime checkbox
-   2. Import data from Airbnb listings CSV
-   3. Select ID as primary key
-   4. Review auto-detected column types
-   5. Add new column bool called `is_listing_in_weaviate`
-2. [**Create new Webhook**](https://supabase.com/dashboard/project/_/database/hooks)
-   1. Select previously created table
-   2. Check **Insert** and **Update** events
-   3. Paste your pipeline Webhook URL
-   4. Add a new header **X-Pipeline-Access-Token** with your pipeline access token
-3. [**Create access policies**](https://supabase.com/dashboard/project/_/auth/policies)
-   1. Create a policy to enable select, insert and update for all users
-
-### 7. Run producer
-The producer will update the Airbnb listings column `is_listing_in_weaviate` and Supabase will send the updated row to GlassFlow:
-
-   ```bash
-   python producer.py
-   ```
-
-### 8. Search for accommodation
-
-Open the streamlit search UI in your browser (https://localhost:8501) and search through the listings with natural language.
+You can now search your Weaviate database on the [search console](https://console.weaviate.cloud/apps/query/).

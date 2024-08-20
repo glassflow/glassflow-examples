@@ -1,14 +1,14 @@
-"""
-Input: Supabase INSERT / UPDATE in row: {...}
-Output: LLM summary and vector embeddings
-"""
 from typing import List, Dict
 from openai import OpenAI
 import os
+import uuid
 
 OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
 OPENAI_CHAT_MODEL = "gpt-3.5-turbo"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+# Name of the Weaviate Collection the output will be stored into
+WEAVIATE_CLASS_NAME = "Listing"
 
 
 def get_embedding(text: str, client: OpenAI) -> List[float]:
@@ -55,11 +55,13 @@ def handler(data, logs):
         logs.error("Failed to generate summary and vector embeddings.", e)
         raise e
 
-    record = data["record"]
-    record["listing_id"] = record.pop("id")
-    record["summary"] = summary
+    properties = data["record"]
+    listing_id = properties.pop("id")
+    properties["summary"] = summary
 
     return {
-        "properties": record,
+        "class": WEAVIATE_CLASS_NAME,
+        "id": str(uuid.UUID(int=listing_id)),
+        "properties": properties,
         "vector": vector
     }
