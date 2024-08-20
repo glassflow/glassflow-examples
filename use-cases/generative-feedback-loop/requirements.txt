@@ -1,5 +1,0 @@
-glassflow
-supabase
-python-dotenv
-streamlit
-weaviate-client==4.7.1
