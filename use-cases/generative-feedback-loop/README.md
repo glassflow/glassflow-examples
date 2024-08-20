@@ -27,16 +27,32 @@ Make sure that you have the following before proceeding with the installation:
     cd use-cases/generative-feedback-loop
     ```
 
+3. Create a new virtual environment:
+    
+    ```bash
+    python -m venv .venv && source .venv/bin/activate
+    ```
+    
+4. Install the required dependencies:
+    
+    ```
+    pip install -r requirements.txt
+    ```    
 
 ## Steps to create the GlassFlow pipeline
 
 We'll use the [GlassFlow WebApp](https://app.glassflow.dev/) to create a new space and configure the data pipeline.
 
-### 1. Create a Space via WebApp
+### 1. (Optional) Create Weaviate collection
 
-Navigate to the [Spaces page](https://app.glassflow.dev/spaces) and create a new space and called `examples` to organize multiple pipelines. 
+Create a new collection called `AirbnbNYC` and choose a vectorizer to match the one used in your transformation. In our
+case is `text2vec-openai` and model `text-embedding-3-small`.
 
-### 2. Create a Pipeline via WebApp
+### 2. Create a Space via WebApp
+
+Navigate to the [Spaces page](https://app.glassflow.dev/spaces) and create a new space and called `examples` to organize multiple pipelines.
+
+### 3. Create a Pipeline via WebApp
 
 Create a new data pipeline inside the space in the [Pipelines page](https://app.glassflow.dev/pipelines).
 
@@ -52,12 +68,24 @@ Follow the pipeline creation steps:
       - `Authentication`: `Bearer ${WEAVIATE_API_KEY}`
 6. Confirm pipeline creation and copy the new **Pipeline ID**, its **Access Token** and the **Webhook URL**
 
-### 3. Create webhook trigger on Supabase
+### 4. Create webhook trigger on Supabase
 
 Follow [the instructions from Supabase](https://supabase.com/docs/guides/database/webhooks#creating-a-webhook) to 
 create the webhook and hook it to `INSERT` events on your table. Use the pipeline webhook URL from your 
 pipeline's details page and add the following headers `X-Pipeline-Access-Token` and `Content-Type`.
 
-### 4. Search your database
+
+### 5. (Optional) Populate Supabase database
+
+To test the pipeline, we can create some rows in our Supabase table by running the command:
+
+   ```bash
+   python populate_supabase.py 100
+   ```
+
+This will insert the first 100 rows from the Airbnb dataset into the database which will trigger the data to be sent 
+to Weaviate.
+
+### 6. Search your database
 
 You can now search your Weaviate database on the [search console](https://console.weaviate.cloud/apps/query/).

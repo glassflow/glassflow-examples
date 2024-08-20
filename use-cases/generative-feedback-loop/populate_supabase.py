@@ -20,20 +20,27 @@ def load_data() -> List[dict]:
         return list(reader)
 
 
-def update_table(data: List[dict], client: Client, limit: int = None):
+def insert_rows(data: List[dict], client: Client, limit: int = None):
     for idx, row in enumerate(data):
         if idx >= limit:
             break
 
         try:
+            if row["last_review"] == "":
+                row["last_review"] = None
+            if row["reviews_per_month"] == "":
+                row["reviews_per_month"] = None
+
             client.table(SUPABASE_TABLE_NAME)\
-                .update({"is_listing_in_weaviate": True})\
-                .eq("id", row["id"])\
+                .insert(row)\
                 .execute()
             print(f"Updated row {idx + 1}")
         except Exception as e:
-            print(f"Failed to insert data: {row}")
-            raise e
+            if e.code == "23505":
+                print(f"Failed to insert row {idx + 1}, it already exists")
+            else:
+                print(f"Failed to insert data: {row}")
+                raise e
         if (idx+1) % 50 == 0:
             time.sleep(1)
 
@@ -42,4 +49,4 @@ if __name__ == '__main__':
     LIMIT = int(sys.argv[1]) if len(sys.argv) > 1 else 100
     client: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
     data = load_data()
-    update_table(data, client, limit=LIMIT)
+    insert_rows(data, client, limit=LIMIT)

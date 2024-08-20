@@ -8,7 +8,7 @@ OPENAI_CHAT_MODEL = "gpt-3.5-turbo"
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 # Name of the Weaviate Collection the output will be stored into
-WEAVIATE_CLASS_NAME = "Listing"
+WEAVIATE_CLASS_NAME = "AirbnbNYC"
 
 
 def get_embedding(text: str, client: OpenAI) -> List[float]:
