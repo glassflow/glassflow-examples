@@ -1,7 +1,7 @@
 import openai
 import json
 
-openai.api_key = "{REPLACE_WITH_YOUR_OPENAI_API_KEY}"
+openai.api_key = "your_open_api_key"
 
 
 def handler(data, log):
@@ -17,7 +17,7 @@ def handler(data, log):
 def detect_anomalies(log):
     # Generate insights using OpenAI's chat completion endpoint
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         response_format={"type": "json_object"},
         messages=[
             {
@@ -26,10 +26,10 @@ def detect_anomalies(log):
             },
             {
                 "role": "user",
-                "content": f"Analyze the following log: {log}, identify if it is normal, unusual or suspicious and return only normal, unusual or suspicious in the JSON with status attribute and log itself as a second variable",
+                "content": f"Analyze the following log: {log}, identify if it is unusual or suspicious and return only unusual or suspicious in the JSON with status attribute and log itself as a second variable",
             },
         ],
-        max_tokens=100,
+        max_tokens=150,
         temperature=0.5,
     )
 

@@ -49,10 +49,18 @@ class SinkConnectorSlack:
                 if res.status_code == 200:
                     record = res.json()
                     print(record)
-                    self.send_to_slack(record)
+
+                    # Check if the status in the JSON is "suspicious" or "unusual"
+                    status = record.get("status", "").lower()
+                    if status in ["suspicious", "unusual"]:
+                        alert_message = {
+                            "alert": "Suspicious or Unusual Activity Detected",
+                            "details": record,
+                        }
+                        self.send_to_slack(alert_message)
 
                     print(
-                        "Consumed transformed event from Glassflow" "and sent to Slack"
+                        "Consumed transformed event from Glassflow and checked for suspicious activity"
                     )
                     # Reset the delay after successful processing
                     retry_delay = 10
