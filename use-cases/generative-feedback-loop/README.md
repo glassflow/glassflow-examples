@@ -86,6 +86,8 @@ To test the pipeline, we can create some rows in our Supabase table by running t
 This will insert the first 100 rows from the Airbnb dataset into the database which will trigger the data to be sent 
 to Weaviate.
 
+**Note**: Make sure to fill your Supabase URL and API Key in the `.env` file.
+
 ### 6. Search your database
 
 You can now search your Weaviate database on the [search console](https://console.weaviate.cloud/apps/query/).
