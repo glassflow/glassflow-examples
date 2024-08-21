@@ -10,7 +10,7 @@ Make sure that you have the following before proceeding with the installation:
 - [Sign up for a free GlassFlow account](http://app.glassflow.dev/).
 - You have an account with [OpenAI API](https://openai.com/api/).
 - Create an [API key](https://platform.openai.com/api-keys).
-- You have a [Supabase](https://supabase.com/) account and a table.
+- You have a [Supabase](https://supabase.com/) account.
 - You have an account on Weaviate and have the REST endpoint url and the API key (https://console.weaviate.cloud/dashboard).
 
 ## Installation
@@ -43,7 +43,7 @@ Make sure that you have the following before proceeding with the installation:
 
 We'll use the [GlassFlow WebApp](https://app.glassflow.dev/) to create a new space and configure the data pipeline.
 
-### 1. (Optional) Create Weaviate collection
+### 1. Create Weaviate collection
 
 Create a new collection called `AirbnbNYC` and choose a vectorizer to match the one used in your transformation. In our
 case is `text2vec-openai` and model `text-embedding-3-small`.
@@ -68,14 +68,21 @@ Follow the pipeline creation steps:
       - `Authentication`: `Bearer ${WEAVIATE_API_KEY}`
 6. Confirm pipeline creation and copy the new **Pipeline ID**, its **Access Token** and the **Webhook URL**
 
-### 4. Create webhook trigger on Supabase
+### 4. Create Supabase table
+
+Create a new table on Supabase with the following configuration:
+ - Enable realtime
+ - Disable Row Level Security (Or create a policy to allow SELECT and INSERT to `public` schema)
+ - Add schema definition
+
+### 5. Create webhook trigger on Supabase
 
 Follow [the instructions from Supabase](https://supabase.com/docs/guides/database/webhooks#creating-a-webhook) to 
 create the webhook and hook it to `INSERT` events on your table. Use the pipeline webhook URL from your 
 pipeline's details page and add the following headers `X-Pipeline-Access-Token` and `Content-Type`.
 
 
-### 5. (Optional) Populate Supabase database
+### 6. Populate Supabase database
 
 To test the pipeline, we can create some rows in our Supabase table by running the command:
 
@@ -88,6 +95,6 @@ to Weaviate.
 
 **Note**: Make sure to fill your Supabase URL and API Key in the `.env` file.
 
-### 6. Search your database
+### 7. Search your database
 
 You can now search your Weaviate database on the [search console](https://console.weaviate.cloud/apps/query/).
