@@ -56,21 +56,13 @@ PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
 
 Replace `your_pipeline_id` and `your_pipeline_access_token` with appropriate values obtained from your GlassFlow account.
 
-## Run the pipeline
-You'll run the source and sink connector scripts to test the pipeline.
+## Send sample log data to the pipeline
 
-### Run the Source Connector
-Run first `source_connector.py` Python script in a terminal to publish server log data to the GlassFlow pipeline:
-
-```bash
-python source_connector.py
-```
-
-### Run the Sink Connector
-Run the `sink_connector.py` Python script in a separate terminal window to see the output side-by-side:
+### Run the log producer
+Run `producer.py` Python script in a terminal to publish sample server log data to the GlassFlow pipeline:
 
 ```bash
-python sink_connector.py
+python producer.py
 ```
 
 This script will continuously consume new events from the GlassFlow pipeline. Upon receiving transformed events, it will send notifications to Slack. You should see an output indicating that messages are being received on Slack.

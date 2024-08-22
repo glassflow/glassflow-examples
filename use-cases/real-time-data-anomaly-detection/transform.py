@@ -11,13 +11,15 @@ def handler(data, log):
     log.info("Event:" + json.dumps(data), data=data)
 
     insights = detect_anomalies(data)
-    return json.loads(insights)
+    return {
+        "text": f"Status: {'suspicious' if 'suspicious' in insights else 'unusual'}\nDetails: {insights}"
+    }
 
 
 def detect_anomalies(log):
     # Generate insights using OpenAI's chat completion endpoint
     response = openai.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         response_format={"type": "json_object"},
         messages=[
             {
@@ -26,10 +28,10 @@ def detect_anomalies(log):
             },
             {
                 "role": "user",
-                "content": f"Analyze the following log: {log}, identify if it is normal, unusual or suspicious and return only normal, unusual or suspicious in the JSON with status attribute and log itself as a second variable",
+                "content": f"Analyze the following log: {log}, identify if it is unusual or suspicious and return only unusual or suspicious in the JSON with status attribute and log itself as a second variable",
             },
         ],
-        max_tokens=100,
+        max_tokens=150,
         temperature=0.5,
     )
 
