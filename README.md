@@ -14,11 +14,12 @@ This repository is your go-to resource for exploring the capabilities of GlassFl
 
 ### Use-cases
 
+- [Real-time price recommendation with AI-powered transformation](use-cases/predict-car-price/)
 - [Mobility data pipeline](use-cases/mobility/)
 - [Real-time logs data anomaly detection with AI-powered transformation](use-cases/real-time-data-anomaly-detection/)
-- [Real-time price recommendation with AI-powered transformation](use-cases/predict-car-price/)
 - [Clickstream analytics dashboard](use-cases/clickstream-analytics-dashboard/)
-- [Classified Ads data enrichment](use-cases/classified-ads-data-enrichment)
+- [Classified Ads data enrichment](use-cases/classified-ads-data-enrichment/)
+- [Real-time generative feedback loop automation](use-cases/generative-feedback-loop/)
 
 ### End-to-end stream processing pipelines
 
