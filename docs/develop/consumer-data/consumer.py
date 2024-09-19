@@ -6,14 +6,13 @@ import os
 
 def main():
     pipeline_id = os.environ["PIPELINE_ID"]
-    space_id = os.environ["SPACE_ID"]
     token = os.environ["PIPELINE_ACCESS_TOKEN"]
 
     # 1. Initializes a GlassFlow Python client
     client = glassflow.GlassFlowClient()
     # 2. Creates a pipeline
     pipeline_client = client.pipeline_client(
-        space_id=space_id, pipeline_id=pipeline_id, pipeline_access_token=token
+        pipeline_id=pipeline_id, pipeline_access_token=token
     )
 
     while True:

@@ -8,7 +8,6 @@ config = dotenv_values(".env")
 project_id = config.get("PROJECT_ID")
 subscription_id = config.get("SUBSCRIPTION_ID")
 pipeline_id = config.get("PIPELINE_ID")
-space_id = config.get("SPACE_ID")
 token = config.get("PIPELINE_ACCESS_TOKEN")
 # Number of seconds the subscriber should listen for messages
 timeout = 5.0
@@ -17,8 +16,7 @@ subscriber = pubsub_v1.SubscriberClient()
 subscription_path = subscriber.subscription_path(project_id, subscription_id)
 
 client = glassflow.GlassFlowClient()
-pipeline_client = client.pipeline_client(space_id=space_id,
-                                         pipeline_id=pipeline_id,
+pipeline_client = client.pipeline_client(pipeline_id=pipeline_id,
                                          pipeline_access_token=token)
 
 

@@ -30,7 +30,7 @@ To run the sample pipeline, you'll need the following:
     - Run `python setup_s3.py` to set up an S3 bucket. You need to specify `AWS_S3_BUCKET_NAME` and `AWS_REGION`.
     - Run `python setup_sqs_queue.py` to create an SQS queue. You need to specify `AWS_SQS_QUEUE_NAME` and `AWS_REGION`. This scrip returns `AWS_SQS_QUEUE_URL` values in the console.
 
-4. Read the following tutorial to learn how to run the GlassFlow and obtain `PIPELINE_ID`, `SPACE_ID` and `PIPELINE_ACCESS_TOKEN` values: [Integrating AWS SQS and S3 with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-sqs-and-s3-with-glassflow)
+4. Read the following tutorial to learn how to run the GlassFlow and obtain `PIPELINE_ID` and `PIPELINE_ACCESS_TOKEN` values: [Integrating AWS SQS and S3 with GlassFlow](https://learn.glassflow.dev/docs/develop/tutorials/integrating-aws-sqs-and-s3-with-glassflow)
 
 5. Create a `.env` file in the same project directory and fill it with the following environment variables:
 
@@ -42,7 +42,6 @@ To run the sample pipeline, you'll need the following:
     AWS_S3_BUCKET_NAME=your_s3_bucket_name
     AWS_REGION=your_aws_region
     PIPELINE_ID=your_pipeline_id
-    SPACE_ID=your_space_id
     PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
     ```
 
@@ -65,5 +64,4 @@ Before running the project, ensure you have set the following environment variab
 | AWS_S3_BUCKET_NAME      | The name of your AWS S3 bucket           |
 | AWS_REGION              | The AWS region where your resources are located |
 | PIPELINE_ID             | Your GlassFlow pipeline ID               |
-| SPACE_ID                | Your GlassFlow space ID                  |
 | PIPELINE_ACCESS_TOKEN   | Your GlassFlow pipeline access token     |

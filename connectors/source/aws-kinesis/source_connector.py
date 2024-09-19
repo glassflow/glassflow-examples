@@ -52,10 +52,8 @@ class SourceConnectorKinesis:
 def main():
     # Initalize the glassflow client
     pipeline_id = os.environ["PIPELINE_ID"]
-    space_id = os.environ["SPACE_ID"]
     pipeline_access_token = os.environ["PIPELINE_ACCESS_TOKEN"]
     glassflow_client = glassflow.GlassFlowClient().pipeline_client(
-        space_id=space_id,
         pipeline_id=pipeline_id,
         pipeline_access_token=pipeline_access_token)
 
