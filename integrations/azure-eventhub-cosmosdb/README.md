@@ -105,7 +105,7 @@ echo $AZURE_COSMOSDB_CONNECTION_STRING
     cd tutorials/azure-eventhub-cosmosdb
     ```
 
-3. Create a space and pipeline using [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli#key-commands) to obtain `PIPELINE_ID`, `SPACE_ID` and `PIPELINE_ACCESS_TOKEN` values:
+3. Create a space and pipeline using [GlassFlow CLI](https://learn.glassflow.dev/docs/get-started/glassflow-cli#key-commands) to obtain `PIPELINE_ID` and `PIPELINE_ACCESS_TOKEN` values:
 
     ```bash
     cd pipeline
@@ -125,7 +125,6 @@ echo $AZURE_COSMOSDB_CONNECTION_STRING
     AZURE_COSMOS_CONTAINER_NAME=your_cosmosdb_container_name
     AZURE_COSMOSDB_CONNECTION_STRING=your_cosmosdb_connection_string
     PIPELINE_ID=your_pipeline_id
-    SPACE_ID=your_space_id
     PIPELINE_ACCESS_TOKEN=your_pipeline_access_token
     ```
 
@@ -150,5 +149,4 @@ Before running the project, ensure you have set the following environment variab
 | AZURE_COSMOS_CONTAINER_NAME     | Your Azure Cosmos DB container name      |
 | AZURE_COSMOSDB_CONNECTION_STRING | Your Azure Cosmos DB connection string  |
 | PIPELINE_ID                     | Your GlassFlow pipeline ID               |
-| SPACE_ID                        | Your GlassFlow space ID                  |
 | PIPELINE_ACCESS_TOKEN           | Your GlassFlow pipeline access token     |
