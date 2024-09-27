@@ -1,4 +1,0 @@
-python-dotenv==1.0.1
-glassflow
-azure-eventhub==5.11.7
-azure-eventhub-checkpointstoreblob-aio==1.1.4
