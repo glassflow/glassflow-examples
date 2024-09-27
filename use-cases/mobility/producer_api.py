@@ -12,7 +12,7 @@ def get_mock_events():
     Get mock events from the mock server
     """
     res = requests.get(
-        "https://mock-mobility-s3r3lbzina-ey.a.run.app/mobility/producer/events/ride-completed"
+        "https://mock-mobility-585858172927.europe-west3.run.app/mobility/producer/events/ride-completed"
     )
     if res.status_code == 200:
         return res.json()

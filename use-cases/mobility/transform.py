@@ -17,7 +17,7 @@ def handler(data, log):
 
 def get_nearest_fuel_station(gps_cordinates, fuel_type):
     print("get nearest fuel station")
-    url = "https://mock-mobility-s3r3lbzina-ey.a.run.app/mobility/gas-stations/nearest"
+    url = "https://mock-mobility-585858172927.europe-west3.run.app/mobility/gas-stations/nearest"
     resp = requests.get(url,
                         params={
                             'cordinates_lat': gps_cordinates[0],
