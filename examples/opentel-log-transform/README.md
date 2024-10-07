@@ -1,4 +1,4 @@
-# Log Format Conversion
+# OpenTelemetry Log Transformation
 
 This example showcases how to transform Open Telemetry log format into a structure that can be ingested into Clickhouse.
 
