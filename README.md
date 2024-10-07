@@ -32,6 +32,6 @@ These are some of the basic examples that you can try with GlassFlow. The exampl
 
 - [Email Encryption](examples/email-encryption) : Showcases how to hash email address (or other PII information) before sending it you to your datawarehouse
 
-- Log format conversion: Showcases how to transform Open Telemetry log format into a structure that can be ingested into Clickhouse. **(coming soon)**
+- [Log format conversion](examples/opentel-log-transform) : Showcases how to transform Open Telemetry log format into a structure that can be ingested into Clickhouse.
 
 - Unstructured to Structured Data (**coming soon**)

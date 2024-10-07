@@ -1,7 +1,7 @@
 # Email Encryption
 
 
-This examples showcases how to use GlassFlow to transorm your user data in motion.
+This examples showcases how to use GlassFlow to transform your user data in motion.
 
 Quite often the events data that the team ingests consists of email addresses. As a data engineer, you want to put the email address on the data-warehouse but not in plain-text.
 
