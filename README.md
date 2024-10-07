@@ -34,4 +34,4 @@ These are some of the basic examples that you can try with GlassFlow. The exampl
 
 - [Log format conversion](examples/opentel-log-transform) : Showcases how to transform Open Telemetry log format into a structure that can be ingested into Clickhouse.
 
-- Unstructured to Structured Data
+- Unstructured to Structured Data (**coming soon**)
