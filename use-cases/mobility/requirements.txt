@@ -1,3 +1,0 @@
-glassflow
-requests
-python-dotenv
