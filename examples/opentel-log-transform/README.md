@@ -1,8 +1,8 @@
 # OpenTelemetry Log Transformation
 
-This example showcases how to transform Open Telemetry log format into a structure that can be ingested into Clickhouse.
+This example demonstrates how to transform OpenTelemetry log formats into a structure that can be ingested into ClickHouse.
 
 ## Pre-requisites
 
-- Create your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev)
-- Get your Personal Access Token to authorize the python sdk to interact with GlassFlow Cloud
+- Create your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev).
+- Get your Personal Access Token to authorize the Python SDK to interact with GlassFlow Cloud.
