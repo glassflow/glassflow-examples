@@ -24,6 +24,16 @@ This repository is your starting point for exploring examples and use cases for 
 
 ## Explore
 
+### Usage
+
+Learn how to use the GlassFlow Python SDK:
+
+* [Create Pipeline](usage/create_pipeline.ipynb): How to create a new pipeline.
+* [Get Pipeline](usage/get_pipeline.ipynb): How to get information about an existing pipeline.
+* [Manage Pipeline](usage/manage_pipeline.ipynb): How to update a pipeline and how to pause it.
+* [Send and Receive events](usage/send_receive_events.ipynb): How to push and consume events to/from a pipeline.
+
+
 ### Basic Examples
 
 These are some basic examples that you can try with GlassFlow. The examples here should be familiar to you as a data engineer and will show you how GlassFlow works and how you can interact with it.
