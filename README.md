@@ -15,7 +15,7 @@ This repository is your starting point for exploring examples and use cases for 
 ## Pre-requisite
 
 - Create your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev).
-- Get your Personal Access Token to authorize the Python SDK to interact with GlassFlow Cloud.
+- Get your Personal Access Token to authorize the Python SDK to interact with GlassFlow Cloud from the [WebApp here](https://app.glassflow.dev/profile)
 - Clone this repository to your local machine to access all the examples:
     ```bash
     git clone https://github.com/glassflow/glassflow-examples.git
