@@ -6,8 +6,11 @@ These are examples that you can try with GlassFlow. The examples here should be 
 
 - [Data Enrichment via API](data-enrichment): Showcases how to call external API during the data transformation stage 
 
-- [Log format conversion](opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
+- [Spam Detection with OpenAI](openai-spam-detection): Showcases how to call leverage openai during the data transformation stage 
 
+- [PII detection and masking on unstructured data](pii-detection-masking): Showcases how to do pii masking on unstructured data using hugging face 
+
+- [Log format conversion](opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
 
 
 ## Pre-requisites
