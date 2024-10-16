@@ -1,0 +1,2 @@
+llama-index==0.11.18
+requests
