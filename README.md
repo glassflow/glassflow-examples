@@ -40,9 +40,9 @@ These are some basic examples that you can try with GlassFlow. The examples here
 
 - [Email Encryption](examples/email-encryption): Showcases how to hash email addresses (or other PII information) before sending them to your data warehouse.
 
-- [Data Enrichment via API](examples/data-enrichment): Showcases how to call external API during the data transformation stage 
+- [Data Enrichment via API](examples/data-enrichment): Showcases how to call external API and enrich the data on the fly
 
-- [Spam Detection with OpenAI](examples/openai-spam-detection): Showcases how to call leverage openai during the data transformation stage 
+- [Spam Detection with OpenAI](examples/openai-spam-detection): Showcases how to leverage openai API during the data transformation stage directly within the pipeline
 
 - [PII detection and masking on unstructured data](examples/pii-detection-masking): Showcases how to do pii masking on unstructured data using hugging face 
 
