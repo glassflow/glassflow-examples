@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://gfassets.fra1.cdn.digitaloceanspaces.com/logo/logo-color.png" /><br /><br />
+  <img src="https://gfassets.fra1.cdn.digitaloceanspaces.com/logo/logo-mono.png" /><br /><br />
 </div>
 <p align="center">
 <a href="https://join.slack.com/t/glassflowhub/shared_invite/zt-2g3s6nhci-bb8cXP9g9jAQ942gHP5tqg">
