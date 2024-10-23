@@ -47,3 +47,5 @@ These are some basic examples that you can try with GlassFlow. The examples here
 - [PII detection and masking on unstructured data](examples/pii-detection-masking): Showcases how to do pii masking on unstructured data using hugging face 
 
 - [Log format conversion](examples/opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
+
+- [Event-driven online price prediction ](examples/event-driven-price-prediction): Demonstrates an event-driven pipeline for **ride-hailing companies like Bolt or Uber** to predict the best possible price to show customers in real-time each time they request a ride.
