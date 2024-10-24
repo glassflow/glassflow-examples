@@ -47,3 +47,5 @@ These are some basic examples that you can try with GlassFlow. The examples here
 - [PII detection and masking on unstructured data](examples/pii-detection-masking): Showcases how to do pii masking on unstructured data using hugging face 
 
 - [Log format conversion](examples/opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
+
+- [Unstructured to structured data transformation](examples/unstructured-to-structured): Transform unstructured data like a YouTube video to extract key topics from the video transcript, generate additional insights, and translate the transcript into any specified language. 

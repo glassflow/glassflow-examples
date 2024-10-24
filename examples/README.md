@@ -12,6 +12,8 @@ These are examples that you can try with GlassFlow. The examples here should be 
 
 - [Log format conversion](opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
 
+- [Unstructured to structured data transformation](unstructured-to-structured): Transform unstructured data like a YouTube video to extract key topics from the video transcript, generate additional insights, and translate the transcript into any specified language. 
+
 
 ## Pre-requisites
 
