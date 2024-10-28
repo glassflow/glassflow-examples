@@ -34,7 +34,7 @@ Learn how to use the GlassFlow Python SDK:
 * [Send and Receive events](usage/send_receive_events.ipynb): How to push and consume events to/from a pipeline.
 
 
-### Basic Examples
+### Examples
 
 These are some basic examples that you can try with GlassFlow. The examples here should be familiar to you as a data engineer and will show you how GlassFlow works and how you can interact with it.
 
