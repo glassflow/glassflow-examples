@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://gfassets.fra1.cdn.digitaloceanspaces.com/logo/logo-mono.png" /><br /><br />
+</div>
+
 ## Examples
 
 These are examples that you can try with GlassFlow. The examples here should be familiar to you as a data engineer and will show you how GlassFlow works and how you can interact with it.
