@@ -10,9 +10,12 @@ This folder contains minimal examples on how to configure managed source and sin
 
 - [Amazon SQS](source/amazon-sqs)
 - [Google PubSub](source/google-pubsub)
+- [Postgres](source/postgres)
 
 ## Sinks
 
 - [Amazon S3](sink/amazon-s3)
 - [Clickhouse](sink/clickhouse)
+- [Pinecone](sink/pinecone)
+- [Snowflake](sink/snowflake)
 - [Webhook](sink/webhook)
