@@ -37,10 +37,10 @@ def handler(data, log):
                 "vectors": [
                     {
                         "id": vector_id,
-                        "values": embeddings.values
-                    }
+                        "values": embeddings.values,
+                        "metadata": data,
+                    },
                 ],
-                "metadata": data
             },
         }
     except Exception as e:
