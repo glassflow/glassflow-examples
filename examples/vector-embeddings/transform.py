@@ -27,8 +27,25 @@ def handler(data, log):
             text=data["content"]
         )
         embeddings = model.get_embeddings([text_embedding_input])[0]
-        data["embeddings"] = embeddings.values
+        vector_id = data.pop("id")
+
+        # Format output to match expected JSON from Pinecone connector
+        upsert_json = {
+            "operation": "upsert",
+            "data": {
+                "namespace": "ns",
+                "vectors": [
+                    {
+                        "id": vector_id,
+                        "values": embeddings.values,
+                        "metadata": data,
+                    },
+                ],
+            },
+        }
     except Exception as e:
         log.error(e)
         raise e
-    return data
+
+    log.info(f"Upsert Event: {upsert_json}")
+    return upsert_json
