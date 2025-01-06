@@ -18,7 +18,10 @@ These are examples that you can try with GlassFlow. The examples here should be 
 
 - [Unstructured to structured data transformation](unstructured-to-structured): Transform unstructured data like a YouTube video to extract key topics from the video transcript, generate additional insights, and translate the transcript into any specified language. 
 
+- [Vector Embeddings](vector-embeddings): An example on how to feed vector embeddings into your vector database.
+
 - [Slack Alerting - Suspicious login](slack-alerting): Use GlassFlow to send slack alert messages when there is a suspicious login
+
 
 ## Pre-requisites
 
