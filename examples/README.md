@@ -20,6 +20,9 @@ These are examples that you can try with GlassFlow. The examples here should be 
 
 - [Vector Embeddings](vector-embeddings): An example on how to feed vector embeddings into your vector database.
 
+- [Slack Alerting - Suspicious login](slack-alerting): Use GlassFlow to send slack alert messages when there is a suspicious login
+
+
 ## Pre-requisites
 
 - Create your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev).
