@@ -38,6 +38,8 @@ Learn how to use the GlassFlow Python SDK:
 
 These are some basic examples that you can try with GlassFlow. The examples here should be familiar to you as a data engineer and will show you how GlassFlow works and how you can interact with it.
 
+- [Hello World](examples/hello-world): Get started with GlassFlow with an hello world example 
+
 - [Email Encryption](examples/email-encryption): Showcases how to hash email addresses (or other PII information) before sending them to your data warehouse.
 
 - [Data Enrichment via API](examples/data-enrichment): Showcases how to call external API and enrich the data on the fly
