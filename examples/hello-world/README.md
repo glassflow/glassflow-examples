@@ -14,5 +14,5 @@ You can take a look at the example video at https://youtu.be/I3xzkEEl79E
 
 ## Pre-requisite
 
-- CCreate your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev).
+- Create your free GlassFlow account via the [GlassFlow WebApp](https://app.glassflow.dev).
 - Get your [Personal Access Token](https://app.glassflow.dev/profile) to authorize the Python SDK to interact with GlassFlow Cloud.
