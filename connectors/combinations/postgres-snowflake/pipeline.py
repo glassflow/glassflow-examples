@@ -27,7 +27,7 @@ client = glassflow.GlassFlowClient(
 # create a space to put the pipeline 
 space = client.create_space(name="postgres-pipelines")
 space_id = space.id
-pipeline_name = "postgres-to-snowflake2"
+pipeline_name = "postgres-to-snowflake"
 transformation_file = "transform.py" # location of the file where the transformation code is 
 
 pipeline = client.create_pipeline(

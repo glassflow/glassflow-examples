@@ -6,8 +6,6 @@ def handler(data, log):
     if data["action"] not in ["I", "D", "U"]:
         return
 
-    data["columns"] = [col for col in data["columns"] if col["name"] not in ["user_email", "shipping_address"]]
-
     event = {}
     if data["action"] == "I":
         event["operation"] = "INSERT"
