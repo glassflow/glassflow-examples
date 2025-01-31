@@ -43,7 +43,7 @@ pipeline = client.create_pipeline(
         "db_name": POSTGRES_DB_NAME,
         "replication_slot": REPLICATION_SLOT
     },
-    sink_kind="clickhouse",
+    sink_kind="snowflake_cdc_json",
     sink_config={
         "account": SNOWFLAKE_ACCOUNT,
         "warehouse": SNOWFLAKE_WAREHOUSE,
