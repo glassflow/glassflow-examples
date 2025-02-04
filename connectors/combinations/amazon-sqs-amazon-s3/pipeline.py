@@ -8,7 +8,7 @@ AMAZON_SQS_AWS_ACCESS_KEY = "" # AWS access key ID with access to the SQS queue
 AMAZON_SQS_AWS_SECRET_KEY = "" # AWS secret key
 
 # AMAZON S3 PARAMETERS
-AMAZON_S3_BUCKET_NAME = "" # s3 bucket name
+AMAZON_S3_BUCKET = "" # s3 bucket name
 AMAZON_S3_KEY = "" # s3 key where to sink the data into
 AMAZON_S3_AWS_REGION = "" # aws region
 AMAZON_S3_AWS_ACCESS_KEY = "" # AWS access key ID with access to the S3 bucket
@@ -37,7 +37,7 @@ pipeline = client.create_pipeline(
     },
     sink_kind="amazon-s3",
     sink_config={
-        "bucket_name": AMAZON_S3_BUCKET_NAME,
+        "s3_bucket": AMAZON_S3_BUCKET,
         "s3_key": AMAZON_S3_KEY,
         "aws_region": AMAZON_S3_AWS_REGION,
         "aws_access_key": AMAZON_S3_AWS_ACCESS_KEY,
