@@ -28,14 +28,14 @@ pipeline = client.create_pipeline(
     name=pipeline_name, 
     transformation_file=transformation_file,
     space_id=space_id, 
-    source_kind="amazon-sqs",
+    source_kind="amazon_sqs",
     source_config={
         "queue_url": AMAZON_SQS_QUEUE_URL,
         "aws_region": AMAZON_SQS_AWS_REGION,
         "aws_access_key": AMAZON_SQS_AWS_ACCESS_KEY,
         "aws_secret_key": AMAZON_SQS_AWS_SECRET_KEY
     },
-    sink_kind="amazon-s3",
+    sink_kind="amazon_s3",
     sink_config={
         "s3_bucket": AMAZON_S3_BUCKET,
         "s3_key": AMAZON_S3_KEY,
