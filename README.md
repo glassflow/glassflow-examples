@@ -51,3 +51,15 @@ These are some basic examples that you can try with GlassFlow. The examples here
 - [Log format conversion](examples/opentel-log-transform): Showcases how to transform Open Telemetry log formats into a structure that can be ingested into ClickHouse.
 
 - [Unstructured to structured data transformation](examples/unstructured-to-structured): Transform unstructured data like a YouTube video to extract key topics from the video transcript, generate additional insights, and translate the transcript into any specified language. 
+
+- [Vector Embeddings](examples/vector-embeddings): An example on how to feed vector embeddings into your vector database.
+
+- [Slack Alerting - Suspicious login](examples/slack-alerting): Use GlassFlow to send slack alert messages when there is a suspicious login
+
+### Connectors
+
+Here there are basic examples on how to create pipelines with our managed connectors:
+
+- [Sources](connectors/source): Managed source connectors 
+- [Sinks](connectors/sink): Managed sink connectors
+- [Combination](connectors/combinations): Combination of source and sink connectors

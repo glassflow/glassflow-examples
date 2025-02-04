@@ -19,3 +19,9 @@ This folder contains minimal examples on how to configure managed source and sin
 - [Pinecone](sink/pinecone)
 - [Snowflake](sink/snowflake)
 - [Webhook](sink/webhook)
+
+## Combinations
+
+- [Postgres → Clickhouse](combinations/postgres-clickhouse)
+- [Postgres → Snowflake](combinations/postgres-snowflake)
+- [Amazon SQS → Amazon S3](combinations/amazon-sqs-amazon-s3)

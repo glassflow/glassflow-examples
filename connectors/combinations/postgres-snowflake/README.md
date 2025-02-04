@@ -6,7 +6,7 @@ More details on how to setup a Postgres connector can be found on [postgres docs
 
 For details on setting up a Snowflake connector, see [snowflake docs](https://www.glassflow.dev/docs/integrations/sinks/snowflake)
 
-For a list of all managed connectors avaulable, see [integrations docs](https://www.glassflow.dev/docs/integrations)
+For a list of all managed connectors available, see [integrations docs](https://www.glassflow.dev/docs/integrations)
 
 
 ## Pre-requisite
