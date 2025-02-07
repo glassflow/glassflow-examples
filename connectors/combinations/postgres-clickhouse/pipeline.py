@@ -13,7 +13,7 @@ REPLICATION_PLUGIN_ARGS = "" # additional arguments for the plugin wall2json, ig
 
 
 # CLICKHOUSE PARAMETERS 
-CLICKHOUSE_ADDRESS = "" # glassflow uses native protocol. this should be of format xxyy.europe-west4.gcp.clickhouse.cloud9440
+CLICKHOUSE_ADDRESS = "" # glassflow uses native protocol. this should be of format xxyy.europe-west4.gcp.clickhouse.cloud:9440
 CLICKHOUSE_DATABASE = "" # database where the table is 
 CLICKHOUSE_USERNAME = "" # username
 CLICKHOUSE_PASSWORD = "" # password
