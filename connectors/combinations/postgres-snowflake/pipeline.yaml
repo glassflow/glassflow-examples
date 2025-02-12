@@ -1,0 +1,45 @@
+# Yaml file for the pipeline to use with CI/CD and Github Actions
+# read more about ci/cd pipelines in the documentation at https://www.glassflow.dev/docs/building-pipelines/github-actions
+
+name: postgres-to-snowflake
+space_name: postgres-pipelines
+# pipeline_id will be added automatically by the Glassflow
+# space will be created and space_id will be added automatically by the Glassflow
+components:
+  - id:
+    name:
+    type: source
+    kind: postgres
+    config:
+      - db_host:
+      - db_port:
+      - db_user:
+      - db_pass:
+      - db_name:
+      - replication_slot:
+      - replication_output_plugin_args:
+
+  - id: main
+    name: Main
+    type: transformer
+    requirements:
+      path: requirements.txt
+    transformation:
+      path: transform.py
+    env_vars:
+      - name: TEST_VARIABLE
+        value: set your env value
+    inputs:
+      - source
+
+  - id:
+    name:
+    type: sink
+    kind: snowflake_cdc_json
+    config:
+      - account:
+      - warehouse:
+      - db_user:
+      - db_pass:
+      - db_name:
+      - db_schema:

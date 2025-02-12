@@ -7,6 +7,7 @@ def handler(data, log):
         return {}
 
     # Transform data from postgres cdc format to clickhouse
+    # expected data for clickhouse sink is a dictionary where each key is a column name and value is the column value
     event = {}
     for item in data["columns"]:
         key = item["name"]
